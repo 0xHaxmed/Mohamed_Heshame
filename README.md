@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
 
 <img src="./assets/images/haxmed-throne.jpg" alt="HAXMED - Offensive Security & Penetration Testing" width="100%" />
 
@@ -24,16 +24,16 @@
 
 ---
 
-## 🩸 Overview // Who is HAXMED?
+## ðŸ©¸ Overview // Who is HAXMED?
 
 This repository contains the source code for the **official portfolio and offensive security portal** of **Mohamed Hesham (`HAXMED`)** &mdash; Penetration Tester & Vulnerability Analyst.
 
 Hosted live on GitHub Pages:  
-👉 **[https://0xhaxmed.github.io/Mohamed_Heshame/](https://0xhaxmed.github.io/Mohamed_Heshame/)**
+ðŸ‘‰ **[https://0xhaxmed.github.io/Mohamed_Heshame/](https://0xhaxmed.github.io/Mohamed_Heshame/)**
 
 ---
 
-## 🛡️ Professional Background & Field Experience
+## ðŸ›¡ï¸ Professional Background & Field Experience
 
 <table>
 <tr>
@@ -63,11 +63,11 @@ Hosted live on GitHub Pages:
 <hr>
 
 ### **Core Capabilities**
-- 🎯 **Web Application Pentesting** (OWASP Top 10, IDOR, SQLi, XSS, Auth Bypass)
-- 📱 **Android Application Security** (APK Reverse Engineering, Component Audits)
-- 🌐 **Network Pentesting** (Nmap, Metasploit, Subnet Isolation, Wireshark)
-- 🛡️ **Next-Gen Firewalls** (Fortinet FortiGate, NAT, VPNs, Policy Auditing)
-- 🐍 **Security Automation** (Python, Bash, Custom PoCs, Scrapers)
+- ðŸŽ¯ **Web Application Pentesting** (OWASP Top 10, IDOR, SQLi, XSS, Auth Bypass)
+- ðŸ“± **Android Application Security** (APK Reverse Engineering, Component Audits)
+- ðŸŒ **Network Pentesting** (Nmap, Metasploit, Subnet Isolation, Wireshark)
+- ðŸ›¡ï¸ **Next-Gen Firewalls** (Fortinet FortiGate, NAT, VPNs, Policy Auditing)
+- ðŸ **Security Automation** (Python, Bash, Custom PoCs, Scrapers)
 
 </td>
 </tr>
@@ -75,11 +75,12 @@ Hosted live on GitHub Pages:
 
 ---
 
-## 🔬 Featured Projects & Open-Source Security Repositories
+## ðŸ”¬ Featured Projects & Open-Source Security Repositories
 
 | Repository | Focus Area | Description |
 | :--- | :---: | :--- |
 | **[Silent-Scrapers](https://github.com/0xHaxmed/Silent-Scrapers)** | **Vulnerable Web Lab** | Second-Year graduation project & full-stack vulnerable training lab (PHP/XAMPP, Node.js, FastAPI). |
+| **[HAXMED-CryptoLab-](https://github.com/0xHaxmed/HAXMED-CryptoLab-)** | **Desktop Security Suite** | Professional cross-platform desktop cryptography & cryptanalysis toolkit (Python 3.11+, PySide6/Qt 6, local-only). |
 | **[-Penetration-testing-writeups-and-lab-reports](https://github.com/0xHaxmed/-Penetration-testing-writeups-and-lab-reports)** | **Writeups & Reports** | Real-world penetration testing writeups, proof-of-concept exploits, and remediation documentation. |
 | **[-WEB-PENTEST-LABS-](https://github.com/0xHaxmed/-WEB-PENTEST-LABS-)** | **Web Pentest** | Dedicated lab exercises dissecting OWASP Top 10 web vulnerabilities. |
 | **[Network-PENTEST](https://github.com/0xHaxmed/Network-PENTEST)** | **Network Pentest** | Network reconnaissance procedures, service exploitation, and privilege escalation methodologies. |
@@ -89,7 +90,7 @@ Hosted live on GitHub Pages:
 
 ---
 
-## ⚡ Technical Architecture of the Portfolio
+## âš¡ Technical Architecture of the Portfolio
 
 - **Crimson Gothic Cyberpunk Design:** Palette: `#070709` | `#8B0000` | `#C51F35` | `#FF3352` | `#BBB8BB`.
 - **Interactive Canvas Engine (`#bgCanvas`):** Custom HTML5 Canvas rendering floating crimson embers and interactive cyber constellation nodes that react to mouse dynamics.
@@ -101,32 +102,32 @@ Hosted live on GitHub Pages:
 
 ---
 
-## 📂 Repository Structure
+## ðŸ“‚ Repository Structure
 
 ```
 Mohamed_Heshame/
-├── index.html                   # Main semantic entrypoint
-├── README.md                    # Repository documentation
-└── assets/
-    ├── css/
-    │   └── style.css            # Modular design tokens & responsive styling
-    ├── js/
-    │   └── main.js              # Canvas engine, 3D tilt, terminal & Web3Forms
-    ├── images/
-    │   ├── haxmed-emblem.svg    # Official vector bat-winged gothic 'H' emblem
-    │   ├── haxmed-brand-board.jpg # Full brand color palette & social guidelines
-    │   ├── haxmed-throne.jpg    # Gothic throne artwork
-    │   ├── haxmed-lair.jpg      # Multi-monitor battle-station artwork
-    │   ├── profile.jpg          # Profile portrait
-    │   └── silentscrapers-logo.jpg # Project logo
-    ├── certificates/            # Verified credentials images & PDFs
-    └── documents/
-        └── mohamed-hesham-cv.pdf # Latest penetration testing resume (Updated)
+â”œâ”€â”€ index.html                   # Main semantic entrypoint
+â”œâ”€â”€ README.md                    # Repository documentation
+â””â”€â”€ assets/
+    â”œâ”€â”€ css/
+    â”‚   â””â”€â”€ style.css            # Modular design tokens & responsive styling
+    â”œâ”€â”€ js/
+    â”‚   â””â”€â”€ main.js              # Canvas engine, 3D tilt, terminal & Web3Forms
+    â”œâ”€â”€ images/
+    â”‚   â”œâ”€â”€ haxmed-emblem.svg    # Official vector bat-winged gothic 'H' emblem
+    â”‚   â”œâ”€â”€ haxmed-brand-board.jpg # Full brand color palette & social guidelines
+    â”‚   â”œâ”€â”€ haxmed-throne.jpg    # Gothic throne artwork
+    â”‚   â”œâ”€â”€ haxmed-lair.jpg      # Multi-monitor battle-station artwork
+    â”‚   â”œâ”€â”€ profile.jpg          # Profile portrait
+    â”‚   â””â”€â”€ silentscrapers-logo.jpg # Project logo
+    â”œâ”€â”€ certificates/            # Verified credentials images & PDFs
+    â””â”€â”€ documents/
+        â””â”€â”€ mohamed-hesham-cv.pdf # Latest penetration testing resume (Updated)
 ```
 
 ---
 
-## 📬 Contact & Direct Channels
+## ðŸ“¬ Contact & Direct Channels
 
 - **Email:** [mohamedhesham1033@gmail.com](mailto:mohamedhesham1033@gmail.com)
 - **WhatsApp / Phone:** [+20 101 162 5709](https://wa.me/201011625709)

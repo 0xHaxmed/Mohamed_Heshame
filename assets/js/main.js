@@ -538,4 +538,122 @@
     }
   }
 
+  /* =========================================================
+     10. Interactive Certifications Slider & Lightbox Modal
+     ========================================================= */
+  var certTrack = document.getElementById("certTrack");
+  var prevBtn = document.getElementById("certPrev");
+  var nextBtn = document.getElementById("certNext");
+  var filterBtns = document.querySelectorAll(".cert-filter-btn");
+
+  if (certTrack) {
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        certTrack.scrollBy({ left: -340, behavior: reduceMotion ? "auto" : "smooth" });
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        certTrack.scrollBy({ left: 340, behavior: reduceMotion ? "auto" : "smooth" });
+      });
+    }
+
+    // Drag-to-scroll support
+    var isDown = false;
+    var startX;
+    var scrollLeft;
+
+    certTrack.addEventListener("mousedown", function (e) {
+      isDown = true;
+      startX = e.pageX - certTrack.offsetLeft;
+      scrollLeft = certTrack.scrollLeft;
+    });
+    certTrack.addEventListener("mouseleave", function () { isDown = false; });
+    certTrack.addEventListener("mouseup", function () { isDown = false; });
+    certTrack.addEventListener("mousemove", function (e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - certTrack.offsetLeft;
+      var walk = (x - startX) * 1.6;
+      certTrack.scrollLeft = scrollLeft - walk;
+    });
+
+    // Category Filtering
+    if (filterBtns.length) {
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          filterBtns.forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          var category = btn.getAttribute("data-category");
+          var cards = certTrack.querySelectorAll(".cert-slide-card");
+          cards.forEach(function (card) {
+            if (category === "all" || card.getAttribute("data-category") === category) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
+          certTrack.scrollTo({ left: 0, behavior: "smooth" });
+        });
+      });
+    }
+  }
+
+  // Lightbox Modal
+  var certModal = document.getElementById("certModal");
+  var certModalTitle = document.getElementById("certModalTitle");
+  var certModalIssuer = document.getElementById("certModalIssuer");
+  var certModalImg = document.getElementById("certModalImg");
+  var certModalStat = document.getElementById("certModalStat");
+  var certModalPdf = document.getElementById("certModalPdf");
+  var certModalClose = document.getElementById("certModalClose");
+
+  window.openCertModal = function (cardEl) {
+    if (!certModal) return;
+    var title = cardEl.getAttribute("data-title") || "";
+    var issuer = cardEl.getAttribute("data-issuer") || "";
+    var imgSrc = cardEl.getAttribute("data-img") || "";
+    var pdfUrl = cardEl.getAttribute("data-pdf") || "";
+    var stat = cardEl.getAttribute("data-stat") || "";
+
+    if (certModalTitle) certModalTitle.textContent = title;
+    if (certModalIssuer) certModalIssuer.textContent = issuer;
+    if (certModalImg) certModalImg.src = imgSrc;
+    if (certModalStat) certModalStat.textContent = stat;
+
+    if (certModalPdf) {
+      if (pdfUrl) {
+        certModalPdf.style.display = "inline-flex";
+        certModalPdf.href = pdfUrl;
+      } else {
+        certModalPdf.style.display = "none";
+      }
+    }
+
+    certModal.classList.add("is-active");
+    certModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
+  window.closeCertModal = function () {
+    if (!certModal) return;
+    certModal.classList.remove("is-active");
+    certModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  if (certModalClose) {
+    certModalClose.addEventListener("click", window.closeCertModal);
+  }
+  if (certModal) {
+    certModal.addEventListener("click", function (e) {
+      if (e.target === certModal) window.closeCertModal();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && certModal.classList.contains("is-active")) {
+        window.closeCertModal();
+      }
+    });
+  }
+
 })();
