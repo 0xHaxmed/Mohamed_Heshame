@@ -1,5 +1,5 @@
-/* =========================================================
-   HAXMED — Offensive Security & Pentesting Portfolio
+﻿/* =========================================================
+   HAXMED â€” Offensive Security & Pentesting Portfolio
    Brand Identity: Crimson Gothic Cyberpunk
    Palette: #0B0B0B | #8B0000 | #C51F35 | #BBB8BB | #FFFFFF
    ========================================================= */
@@ -51,7 +51,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
   background-color: var(--bg);
+}
+
+section, [id] {
+  scroll-margin-top: 90px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1017,20 +1022,22 @@ section:last-of-type {
    ========================================================= */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
 }
 
 .project-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 36px;
+  padding: clamp(22px, 2.5vw, 32px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
   transition: all 0.25s var(--ease);
+  height: 100%;
 }
 
 .project-card:hover {
@@ -1041,36 +1048,39 @@ section:last-of-type {
 
 .project-badge {
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--crimson);
   background: var(--crimson-dim);
   border: 1px solid rgba(197, 31, 53, 0.25);
   padding: 4px 10px;
   border-radius: var(--radius-xs);
   display: inline-block;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   letter-spacing: 0.05em;
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 .project-card h3 {
-  font-size: 24px;
+  font-size: clamp(20px, 1.8vw, 23px);
   margin: 0 0 12px;
   color: #FFFFFF;
+  line-height: 1.3;
 }
 
 .project-card p {
   color: var(--text-dim);
-  font-size: 15.5px;
+  font-size: 14.5px;
   line-height: 1.6;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .project-meta-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 28px;
-  padding-bottom: 24px;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -1078,14 +1088,25 @@ section:last-of-type {
   font-family: var(--font-mono);
   font-size: 12.5px;
   color: var(--text-muted);
+  line-height: 1.45;
 }
 
 .project-meta-item strong {
   color: var(--silver-bright);
 }
 
-.project-card .btn {
-  align-self: flex-start;
+.project-card-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.project-card-actions .btn {
+  font-size: 12px;
+  padding: 9px 16px;
+  white-space: nowrap;
 }
 
 /* =========================================================
@@ -1547,7 +1568,7 @@ section:last-of-type {
 }
 
 .service-feature-item::before {
-  content: "»";
+  content: "Â»";
   color: var(--crimson);
   font-weight: 700;
 }
@@ -1811,16 +1832,32 @@ textarea.form-control {
 }
 
 /* =========================================================
-   Responsive Breakpoints
+   Responsive Breakpoints (Desktop, Laptop, Tablet & Mobile)
    ========================================================= */
-@media (max-width: 1024px) {
+@media (max-width: 1180px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .projects-grid > .project-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 940px) {
+  .nav-links, .nav-actions .btn {
+    display: none;
+  }
+  .nav-toggle {
+    display: flex;
+  }
   .hero .container {
     grid-template-columns: 1fr;
-    gap: 48px;
-  }
-  .about-grid, .skills-grid, .projects-grid, .services-grid, .contact-grid {
-    grid-template-columns: 1fr;
     gap: 40px;
+  }
+  .about-grid, .skills-grid, .services-grid, .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
   }
   .repos-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1830,35 +1867,99 @@ textarea.form-control {
   }
   .timeline-item {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 10px;
   }
 }
 
 @media (max-width: 768px) {
+  html {
+    scroll-padding-top: 75px;
+  }
+  section, [id] {
+    scroll-margin-top: 75px;
+  }
+  section {
+    padding: 85px 0;
+  }
+  .hero {
+    padding-top: 130px;
+    padding-bottom: 50px;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .projects-grid > .project-card:last-child {
+    grid-column: auto;
+  }
   .repos-grid {
     grid-template-columns: 1fr;
   }
-  .nav-links, .nav-actions .btn {
-    display: none;
-  }
-  .nav-toggle {
-    display: flex;
-  }
-  .hero {
-    padding-top: 120px;
-    padding-bottom: 60px;
-  }
   .hero-stats {
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 20px;
   }
   .contact-form-box {
-    padding: 24px;
+    padding: 24px 20px;
   }
   .pipeline-track {
-    gap: 16px;
+    gap: 14px;
   }
   .pipeline-step {
     font-size: 11.5px;
+  }
+  .cert-slider-track {
+    gap: 16px;
+  }
+  .cert-slide-card {
+    width: clamp(260px, 82vw, 320px);
+    min-width: clamp(260px, 82vw, 320px);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --gutter: 16px;
+  }
+  .hero-title {
+    font-size: clamp(28px, 8vw, 34px);
+  }
+  .hero-motto {
+    font-size: 13.5px;
+  }
+  .hero-desc {
+    font-size: 15px;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .section-head h2 {
+    font-size: 26px;
+  }
+  .project-card {
+    padding: 20px 16px;
+  }
+  .project-card-actions {
+    flex-direction: column;
+  }
+  .project-card-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .contact-channel-card {
+    padding: 12px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .contact-channel-card .copy-btn {
+    align-self: flex-start;
+  }
+  .contact-form-box {
+    padding: 18px 14px;
+  }
+  .form-control {
+    font-size: 16px; /* Prevents auto-zoom on iOS */
   }
 }
