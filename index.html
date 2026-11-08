@@ -1,1447 +1,808 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HAXMED | Junior Penetration Tester &amp; Cybersecurity Specialist</title>
-<meta name="description" content="Mohamed Hesham (HAXMED) — Junior Penetration Tester focused on web application security, network penetration testing, vulnerability assessment, and security automation.">
-<meta name="keywords" content="Penetration Testing, Cybersecurity, Web Application Security, Vulnerability Assessment, Network Security, Burp Suite, Nmap, Metasploit, Python, OWASP">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAXMED | Junior Penetration Tester &amp; Cybersecurity Specialist</title>
+  
+  <meta name="description" content="Mohamed Hesham (HAXMED) — Junior Penetration Tester focused on Web Application Security, Network Penetration Testing, Vulnerability Assessment, and Security Automation. Knowledge is Power. Access is Everything.">
+  <meta name="keywords" content="Penetration Testing, Cybersecurity, Offensive Security, Web Application Security, Vulnerability Assessment, Network Security, Burp Suite, Nmap, Metasploit, Python, OWASP, HAXMED">
+  <meta name="author" content="Mohamed Hesham (0xHaxmed)">
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="HAXMED | Junior Penetration Tester & Cybersecurity Specialist">
-<meta property="og:description" content="I find vulnerabilities before attackers do.">
-<meta property="og:image" content="assets/images/profile.jpg">
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://0xhaxmed.github.io/Mohamed_Heshame/">
+  <meta property="og:title" content="HAXMED | Junior Penetration Tester &amp; Cybersecurity Specialist">
+  <meta property="og:description" content="I find vulnerabilities before attackers do. Knowledge is Power. Access is Everything.">
+  <meta property="og:image" content="assets/images/haxmed-brand-board.jpg">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HAXMED | Junior Penetration Tester & Cybersecurity Specialist">
-<meta name="twitter:description" content="I find vulnerabilities before attackers do.">
-<meta name="twitter:image" content="assets/images/profile.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HAXMED | Junior Penetration Tester &amp; Cybersecurity Specialist">
+  <meta name="twitter:description" content="I find vulnerabilities before attackers do. Knowledge is Power. Access is Everything.">
+  <meta name="twitter:image" content="assets/images/haxmed-brand-board.jpg">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%2308090B'/%3E%3Ctext x='50%25' y='58%25' font-size='13' fill='%2322C55E' font-family='monospace' text-anchor='middle'%3E%3E_%3C/text%3E%3C/svg%3E">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/haxmed-emblem.svg">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-/* =========================================================
-   HAXMED — Cybersecurity Portfolio — Design tokens
-   ========================================================= */
-:root{
-  --bg: #08090B;
-  --surface: #0E1116;
-  --surface-2: #141820;
-  --text: #F5F7FA;
-  --text-dim: #9CA3AF;
-  --green: #22C55E;
-  --green-muted: #166534;
-  --border: #1F2937;
-  --danger: #EF4444;
-  --warning: #F59E0B;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --container: 1180px;
-  --gutter: clamp(20px, 5vw, 64px);
-  --ease: cubic-bezier(.4,0,.2,1);
-}
-*,*::before,*::after{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior: auto; }
-  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
-}
-body{ margin:0; background:var(--bg); color:var(--text); font-family:var(--font-sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
-img{ max-width:100%; display:block; }
-a{ color:inherit; text-decoration:none; }
-button{ font-family:inherit; }
-ul{ margin:0; padding:0; list-style:none; }
-
-.bg-grid{ position:fixed; inset:0; z-index:-2; background-image:linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px); background-size:42px 42px; pointer-events:none; }
-.bg-glow{ position:fixed; top:-10%; left:50%; transform:translateX(-50%); width:900px; height:500px; background:radial-gradient(ellipse at center, rgba(34,197,94,0.06), transparent 70%); z-index:-1; pointer-events:none; }
-.container{ max-width:var(--container); margin:0 auto; padding:0 var(--gutter); }
-.mono{ font-family:var(--font-mono); }
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{ outline:2px solid var(--green); outline-offset:3px; border-radius:2px; }
-
-section{ position:relative; padding:120px 0; border-bottom:1px solid var(--border); }
-section:last-of-type{ border-bottom:none; }
-.section-head{ max-width:640px; margin-bottom:56px; }
-.section-label{ display:block; font-family:var(--font-mono); font-size:13px; color:var(--green); margin-bottom:16px; letter-spacing:.02em; }
-.section-head h2{ font-size:clamp(28px,3.4vw,42px); line-height:1.2; margin:0 0 14px; font-weight:600; letter-spacing:-.01em; }
-.section-head p{ color:var(--text-dim); font-size:17px; max-width:58ch; margin:0; }
-
-.btn{ display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:var(--radius-sm); font-size:14.5px; font-weight:600; border:1px solid transparent; cursor:pointer; transition:transform .15s var(--ease), border-color .15s var(--ease), background .15s var(--ease), color .15s var(--ease); }
-.btn:active{ transform:translateY(1px); }
-.btn-primary{ background:var(--green); color:#06170D; }
-.btn-primary:hover{ background:#3fdb75; }
-.btn-outline{ background:transparent; color:var(--text); border-color:var(--border); }
-.btn-outline:hover{ border-color:var(--green); color:var(--green); }
-
-.nav{ position:fixed; top:0; left:0; right:0; z-index:100; padding:22px 0; transition:background .25s var(--ease), border-color .25s var(--ease), padding .25s var(--ease), backdrop-filter .25s var(--ease); border-bottom:1px solid transparent; }
-.nav.is-scrolled{ background:rgba(8,9,11,0.78); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom-color:var(--border); padding:14px 0; }
-.nav .container{ display:flex; align-items:center; justify-content:space-between; }
-.brand{ font-family:var(--font-mono); font-weight:600; font-size:17px; display:flex; align-items:center; gap:8px; color:var(--text); background:none; border:none; cursor:pointer; padding:0; }
-.brand .dot{ width:7px; height:7px; border-radius:50%; background:var(--green); }
-.nav-links{ display:flex; align-items:center; gap:34px; }
-.nav-links a{ font-size:14.5px; color:var(--text-dim); transition:color .15s var(--ease); position:relative; cursor:pointer; }
-.nav-links a:hover, .nav-links a.active{ color:var(--text); }
-.nav-actions{ display:flex; align-items:center; gap:18px; }
-.nav-toggle{ display:none; background:none; border:none; color:var(--text); width:40px; height:40px; align-items:center; justify-content:center; cursor:pointer; }
-.nav-toggle svg{ width:22px; height:22px; }
-.mobile-menu{ position:fixed; inset:0; z-index:99; background:var(--bg); display:flex; flex-direction:column; padding:100px var(--gutter) 40px; transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s var(--ease), transform .2s var(--ease); }
-.mobile-menu.is-open{ opacity:1; transform:none; pointer-events:auto; }
-.mobile-menu a{ font-size:26px; padding:16px 0; border-bottom:1px solid var(--border); color:var(--text); cursor:pointer; }
-.mobile-menu .btn{ margin-top:28px; align-self:flex-start; }
-
-.hero{ padding-top:168px; padding-bottom:90px; border-bottom:1px solid var(--border); }
-.hero .container{ display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center; }
-.hero-label{ font-family:var(--font-mono); font-size:13px; color:var(--green); display:inline-flex; align-items:center; gap:10px; padding:6px 12px; border:1px solid var(--border); border-radius:20px; margin-bottom:26px; }
-.hero-label .pulse{ width:6px; height:6px; border-radius:50%; background:var(--green); animation:pulse 2.2s infinite; }
-@keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(34,197,94,.5);} 70%{box-shadow:0 0 0 7px rgba(34,197,94,0);} 100%{box-shadow:0 0 0 0 rgba(34,197,94,0);} }
-.hero h1{ font-size:clamp(38px,5vw,60px); line-height:1.08; letter-spacing:-.02em; margin:0 0 22px; font-weight:700; }
-.hero h1 .accent{ color:var(--green); }
-.hero p.lead{ color:var(--text-dim); font-size:18px; max-width:46ch; margin:0 0 34px; }
-.hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px; }
-.hero-trust{ display:flex; gap:22px; flex-wrap:wrap; padding-top:24px; border-top:1px solid var(--border); }
-.hero-trust span{ font-family:var(--font-mono); font-size:12.5px; color:var(--text-dim); display:flex; align-items:center; gap:8px; }
-.hero-trust span::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--green); }
-
-.terminal{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; box-shadow:0 30px 60px -30px rgba(0,0,0,.6); }
-.terminal-bar{ display:flex; align-items:center; gap:10px; padding:13px 16px; background:var(--surface-2); border-bottom:1px solid var(--border); }
-.terminal-dot{ width:10px; height:10px; border-radius:50%; background:#2a303b; }
-.terminal-title{ font-family:var(--font-mono); font-size:12.5px; color:var(--text-dim); margin-left:6px; }
-.terminal-body{ padding:24px 22px; font-family:var(--font-mono); font-size:13.6px; line-height:1.85; min-height:320px; }
-.terminal-body .prompt{ color:var(--green); }
-.terminal-body .line{ color:var(--text-dim); white-space:pre-wrap; margin:0 0 6px; }
-.terminal-body .line.strong{ color:var(--text); }
-.terminal-body .ok{ color:var(--green); }
-.terminal-body .cursor{ display:inline-block; width:8px; height:15px; background:var(--green); vertical-align:middle; animation:blink 1s steps(1) infinite; }
-@keyframes blink{ 50%{opacity:0;} }
-
-.scroll-cue{ display:flex; flex-direction:column; align-items:center; gap:10px; padding-bottom:60px; }
-.scroll-cue span{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:.12em; color:var(--text-dim); }
-.scroll-cue .arrow{ width:1px; height:34px; background:linear-gradient(to bottom, var(--green), transparent); position:relative; overflow:hidden; }
-.scroll-cue .arrow::after{ content:""; position:absolute; left:-1px; top:-34px; width:1px; height:34px; background:var(--text); animation:drip 1.8s infinite var(--ease); }
-@keyframes drip{ 0%{transform:translateY(0);} 100%{transform:translateY(68px);} }
-
-.about .container{ display:grid; grid-template-columns:1.15fr .85fr; gap:64px; align-items:start; }
-.about-text p{ color:var(--text-dim); margin:0 0 18px; font-size:16px; max-width:62ch; }
-.about-text p:first-child{ color:var(--text); font-size:17px; }
-.profile-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; }
-.profile-photo{ width:100%; aspect-ratio:4/3; object-fit:cover; object-position:center 25%; border-bottom:1px solid var(--border); filter:grayscale(15%); }
-.profile-card-head{ padding:26px 26px 22px; border-bottom:1px solid var(--border); }
-.profile-card-head .name{ font-size:19px; font-weight:600; margin:0 0 4px; }
-.profile-card-head .role{ font-family:var(--font-mono); font-size:12.5px; color:var(--green); }
-.profile-card-section{ padding:22px 26px; border-bottom:1px solid var(--border); }
-.profile-card-section:last-child{ border-bottom:none; }
-.profile-card-section h4{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:.06em; color:var(--text-dim); margin:0 0 14px; text-transform:uppercase; }
-.tag-list{ display:flex; flex-wrap:wrap; gap:8px; }
-.tag{ font-family:var(--font-mono); font-size:12px; padding:6px 10px; border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-dim); }
-
-.mindset-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; margin-bottom:56px; }
-.mindset-card{ background:var(--surface); padding:32px 30px; }
-.mindset-card .num{ font-family:var(--font-mono); color:var(--green); font-size:13px; margin-bottom:16px; display:block; }
-.mindset-card h3{ font-size:19px; margin:0 0 10px; }
-.mindset-card p{ color:var(--text-dim); font-size:15px; margin:0; }
-.flow{ display:flex; flex-wrap:wrap; align-items:center; gap:0; font-family:var(--font-mono); font-size:13px; color:var(--text-dim); }
-.flow .step{ padding:10px 16px; border:1px solid var(--border); border-radius:20px; background:var(--surface); }
-.flow .arrow{ padding:0 10px; color:var(--green); }
-
-.skills-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
-.skill-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:30px; transition:border-color .2s var(--ease); }
-.skill-card:hover{ border-color:#2a3242; }
-.skill-card-head{ display:flex; align-items:center; gap:12px; margin-bottom:20px; }
-.skill-card-head .icon{ width:38px; height:38px; border-radius:var(--radius-sm); background:var(--surface-2); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--green); flex-shrink:0; }
-.skill-card-head h3{ font-size:18px; margin:0; }
-.skill-tags{ display:flex; flex-wrap:wrap; gap:8px; }
-
-.tool-strip{ padding:46px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); overflow:hidden; }
-.tool-track{ display:flex; gap:46px; font-family:var(--font-mono); font-size:14px; color:var(--text-dim); white-space:nowrap; width:max-content; animation:scroll-x 34s linear infinite; }
-@media (prefers-reduced-motion: reduce){ .tool-track{ animation:none; flex-wrap:wrap; width:auto; } }
-.tool-track span{ display:flex; align-items:center; gap:10px; }
-.tool-track span::before{ content:"//"; color:var(--green); }
-@keyframes scroll-x{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
-
-.project-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
-.case-logo{ width:34px; height:34px; border-radius:6px; object-fit:cover; }
-.case-hero-logo{ width:56px; height:56px; border-radius:8px; object-fit:cover; margin-bottom:20px; }
-.case-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:30px; display:flex; flex-direction:column; transition:transform .2s var(--ease), border-color .2s var(--ease); text-align:left; width:100%; color:var(--text); cursor:pointer; }
-.case-card:hover{ transform:translateY(-4px); border-color:var(--green); }
-.case-card-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:22px; }
-.case-id{ font-family:var(--font-mono); font-size:12px; color:var(--text-dim); }
-.case-badge{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:.04em; color:var(--green); border:1px solid var(--green-muted); padding:4px 9px; border-radius:20px; }
-.case-card h3{ font-size:20px; margin:0 0 8px; }
-.case-card .subtitle{ color:var(--text-dim); font-size:14.5px; margin:0 0 20px; line-height:1.5; }
-.case-card .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; margin-bottom:22px; }
-.case-card .cta{ font-family:var(--font-mono); font-size:13px; color:var(--green); display:flex; align-items:center; gap:8px; padding-top:18px; border-top:1px solid var(--border); }
-
-.proof-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-
-.stats-strip{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:20px;
-  padding:32px 0 40px;
-  border-bottom:1px solid var(--border);
-  margin-bottom:40px;
-}
-.stat-item{ text-align:center; }
-.stat-number{
-  display:block;
-  font-family:var(--font-mono);
-  font-size:clamp(26px,3.4vw,38px);
-  font-weight:600;
-  color:var(--green);
-  line-height:1.1;
-  margin-bottom:8px;
-}
-.stat-label{
-  display:block;
-  font-size:12px;
-  color:var(--text-dim);
-  letter-spacing:.02em;
-}
-@media (max-width: 980px){
-  .stats-strip{ grid-template-columns:repeat(3,1fr); row-gap:28px; }
-}
-@media (max-width: 680px){
-  .stats-strip{ grid-template-columns:repeat(2,1fr); }
-}
-
-.mini-cert-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.mini-cert-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; display:flex; flex-direction:column; }
-.mini-cert-card img{ width:100%; aspect-ratio:4/2.55; object-fit:cover; border-bottom:1px solid var(--border); display:block; }
-.mini-cert-card .mini-cert-body{ padding:18px 20px; flex:1; display:flex; flex-direction:column; }
-.mini-cert-card h4{ font-size:15px; margin:0 0 4px; }
-.mini-cert-card .mini-issuer{ font-family:var(--font-mono); font-size:11.5px; color:var(--green); margin-bottom:10px; display:block; }
-.mini-cert-card .mini-date{ margin-top:auto; padding-top:10px; border-top:1px solid var(--border); font-size:12px; color:var(--text-dim); font-family:var(--font-mono); }
-.mini-cert-card.no-image .mini-cert-body{ justify-content:center; min-height:150px; }
-
-/* Certificate marquee — full-bleed infinite scroll */
-.cert-marquee-wrap{
-  width:100vw;
-  position:relative;
-  left:50%;
-  right:50%;
-  margin-left:-50vw;
-  margin-right:-50vw;
-  overflow:hidden;
-  padding:36px 0;
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-}
-.cert-marquee-wrap::before, .cert-marquee-wrap::after{
-  content:"";
-  position:absolute;
-  top:0; bottom:0;
-  width:min(120px, 10vw);
-  z-index:2;
-  pointer-events:none;
-}
-.cert-marquee-wrap::before{ left:0; background:linear-gradient(to right, var(--bg), transparent); }
-.cert-marquee-wrap::after{ right:0; background:linear-gradient(to left, var(--bg), transparent); }
-.cert-marquee-track{
-  display:flex;
-  gap:22px;
-  width:max-content;
-  animation:cert-marquee-scroll 70s linear infinite;
-}
-.cert-marquee-wrap:hover .cert-marquee-track,
-.cert-marquee-wrap:focus-within .cert-marquee-track{
-  animation-play-state:paused;
-}
-@keyframes cert-marquee-scroll{
-  from{ transform:translateX(0); }
-  to{ transform:translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce){
-  .cert-marquee-track{ animation:none; flex-wrap:wrap; width:auto; }
-  .cert-marquee-wrap{ overflow:visible; }
-}
-
-.cert-m-card{
-  flex:0 0 auto;
-  width:280px;
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:var(--radius-md);
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  transition:border-color .2s var(--ease), transform .2s var(--ease);
-}
-.cert-m-card:hover{ border-color:var(--green); transform:translateY(-3px); }
-.cert-m-card img{ width:100%; height:160px; object-fit:cover; border-bottom:1px solid var(--border); display:block; }
-.cert-m-card .cert-m-noimg{
-  height:160px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--surface-2);
-  border-bottom:1px solid var(--border);
-  color:var(--green);
-}
-.cert-m-body{ padding:18px 20px; flex:1; display:flex; flex-direction:column; }
-.cert-m-body h4{ font-size:15px; margin:0 0 4px; line-height:1.3; }
-.cert-m-body .cert-m-issuer{ font-family:var(--font-mono); font-size:11.5px; color:var(--green); display:block; margin-bottom:8px; }
-.cert-m-body .cert-m-stat{ font-size:12.5px; color:var(--text-dim); margin:0 0 auto; }
-.cert-m-body .cert-m-date{ margin-top:12px; padding-top:10px; border-top:1px solid var(--border); font-size:11.5px; color:var(--text-dim); font-family:var(--font-mono); }
-.cert-m-body .cert-m-pdf{ margin-top:8px; font-size:11.5px; font-family:var(--font-mono); color:var(--green); }
-.cert-m-body .cert-m-pdf:hover{ text-decoration:underline; }
-
-@media (max-width: 680px){
-  .cert-m-card{ width:230px; }
-  .cert-m-card img, .cert-m-card .cert-m-noimg{ height:130px; }
-}
-.proof-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:26px; text-align:left; }
-.proof-card .mark{ color:var(--green); font-family:var(--font-mono); font-size:12px; margin-bottom:12px; display:block; }
-.proof-card h4{ font-size:16px; margin:0 0 6px; }
-.proof-card p{ color:var(--text-dim); font-size:14px; margin:0; }
-.ethics-note{ margin-top:44px; padding:20px 24px; border:1px solid var(--border); border-left:2px solid var(--green); border-radius:var(--radius-sm); background:var(--surface); color:var(--text-dim); font-size:14.5px; max-width:72ch; }
-
-.cert-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
-.cert-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; }
-.cert-card img{ width:100%; display:block; border-bottom:1px solid var(--border); }
-.cert-card-body{ padding:24px 26px; }
-.cert-card-body h3{ font-size:17px; margin:0 0 6px; }
-.cert-card-body .issuer{ font-family:var(--font-mono); font-size:12px; color:var(--green); margin-bottom:14px; display:block; }
-.cert-stats{ display:flex; flex-wrap:wrap; gap:18px; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); }
-.cert-stats div span{ display:block; }
-.cert-stats .v{ font-family:var(--font-mono); font-size:15px; color:var(--text); font-weight:600; }
-.cert-stats .k{ font-size:11.5px; color:var(--text-dim); margin-top:2px; }
-
-.services-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
-.service-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:30px; }
-.service-card h3{ font-size:18px; margin:0 0 10px; }
-.service-card p{ color:var(--text-dim); font-size:14.5px; margin:0 0 18px; }
-.service-card ul li{ font-size:14px; color:var(--text-dim); padding:8px 0; border-top:1px solid var(--border); display:flex; align-items:center; gap:10px; }
-.service-card ul li:first-child{ border-top:none; }
-.service-card ul li::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--green); flex-shrink:0; }
-
-.timeline{ position:relative; padding-left:28px; }
-.timeline::before{ content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--border); }
-.timeline-item{ position:relative; padding-bottom:34px; }
-.timeline-item:last-child{ padding-bottom:0; }
-.timeline-item::before{ content:""; position:absolute; left:-28px; top:5px; width:10px; height:10px; border-radius:50%; background:var(--bg); border:2px solid var(--green); }
-.timeline-item .when{ font-family:var(--font-mono); font-size:12.5px; color:var(--green); margin-bottom:6px; display:block; }
-.timeline-item h4{ margin:0 0 4px; font-size:17px; }
-.timeline-item p{ color:var(--text-dim); margin:0; font-size:14.5px; }
-
-.resume-box{ display:flex; align-items:center; justify-content:space-between; gap:30px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:34px 40px; flex-wrap:wrap; }
-.resume-box h3{ margin:0 0 6px; font-size:20px; }
-.resume-box p{ margin:0; color:var(--text-dim); font-size:14.5px; }
-
-.contact-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:64px; }
-.contact-links{ display:flex; flex-direction:column; gap:14px; margin-top:30px; }
-.contact-link{ display:flex; align-items:center; justify-content:space-between; padding:16px 18px; border:1px solid var(--border); border-radius:var(--radius-sm); transition:border-color .15s var(--ease); font-size:14.5px; }
-.contact-link-email{ gap:12px; }
-.contact-link-anchor{ display:flex; align-items:center; justify-content:space-between; flex:1; min-width:0; gap:10px; }
-.copy-btn{
-  flex-shrink:0;
-  width:34px; height:34px;
-  display:flex; align-items:center; justify-content:center;
-  background:transparent;
-  border:1px solid var(--border);
-  border-radius:6px;
-  color:var(--text-dim);
-  cursor:pointer;
-  transition:border-color .15s var(--ease), color .15s var(--ease);
-}
-.copy-btn:hover{ border-color:var(--green); color:var(--green); }
-.copy-btn.copied{ border-color:var(--green); color:var(--green); }
-.contact-link:hover{ border-color:var(--green); }
-.contact-link .k{ color:var(--text-dim); font-family:var(--font-mono); font-size:12.5px; }
-
-.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px; }
-.field{ display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
-.field label{ font-size:13px; color:var(--text-dim); font-family:var(--font-mono); }
-.field input, .field select, .field textarea{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px; color:var(--text); font-family:var(--font-sans); font-size:14.5px; transition:border-color .15s var(--ease); }
-.field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--green); outline:none; }
-.field textarea{ resize:vertical; min-height:120px; }
-.field.error input, .field.error select, .field.error textarea{ border-color:var(--danger); }
-.field .error-msg{ color:var(--danger); font-size:12.5px; display:none; }
-.field.error .error-msg{ display:block; }
-.form-status{ margin-top:14px; font-size:14px; padding:12px 14px; border-radius:var(--radius-sm); display:none; }
-.form-status.show{ display:block; }
-.form-status.success{ background:rgba(34,197,94,0.08); border:1px solid var(--green-muted); color:var(--green); }
-.form-status.fail{ background:rgba(239,68,68,0.08); border:1px solid #7f1d1d; color:var(--danger); }
-
-.final-cta{ text-align:center; padding:100px 0; }
-.final-cta h2{ font-size:clamp(28px,4vw,44px); margin:0 0 18px; line-height:1.25; }
-.final-cta p{ color:var(--text-dim); margin:0 0 32px; }
-
-footer{ padding:80px 0 40px; }
-.footer-terminal{ margin-bottom:50px; }
-.footer-bottom{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding-top:26px; border-top:1px solid var(--border); font-size:13.5px; color:var(--text-dim); }
-.footer-links{ display:flex; gap:24px; }
-.footer-links a:hover{ color:var(--text); }
-
-.reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
-.reveal.is-visible{ opacity:1; transform:none; }
-@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
-
-/* Project detail (in-page "route") */
-#view-project{ display:none; }
-.case-nav{ position:sticky; top:0; z-index:60; background:rgba(8,9,11,0.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); padding:18px 0; }
-.case-nav .container{ display:flex; align-items:center; justify-content:space-between; }
-.back-link{ display:flex; align-items:center; gap:8px; font-size:14px; color:var(--text-dim); background:none; border:none; cursor:pointer; padding:0; font-family:var(--font-sans); }
-.back-link:hover{ color:var(--green); }
-.case-hero{ padding:70px 0 60px; border-bottom:1px solid var(--border); }
-.case-hero .case-badge{ margin-bottom:20px; display:inline-block; }
-.case-hero h1{ font-size:clamp(30px,4.4vw,46px); margin:0 0 14px; line-height:1.15; letter-spacing:-.01em; }
-.case-hero .subtitle{ color:var(--text-dim); font-size:18px; max-width:60ch; margin:0 0 30px; }
-.case-meta{ display:flex; flex-wrap:wrap; gap:36px; padding-top:26px; border-top:1px solid var(--border); }
-.case-meta div h5{ font-family:var(--font-mono); font-size:11.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.05em; margin:0 0 8px; }
-.case-meta div p{ margin:0; font-size:14.5px; }
-.case-body{ padding:70px 0; }
-.case-block{ max-width:780px; margin:0 0 64px; }
-.case-block:last-child{ margin-bottom:0; }
-.case-block h2{ font-size:24px; margin:0 0 16px; }
-.case-block p{ color:var(--text-dim); font-size:16px; margin:0 0 14px; }
-.case-block ul li{ color:var(--text-dim); font-size:15.5px; padding:10px 0 10px 22px; border-top:1px solid var(--border); position:relative; }
-.case-block ul li:first-child{ border-top:none; }
-.case-block ul li::before{ content:"—"; position:absolute; left:0; color:var(--green); }
-.case-flow{ display:flex; flex-wrap:wrap; gap:0; font-family:var(--font-mono); font-size:13px; color:var(--text-dim); margin:20px 0; }
-.case-cta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:40px; }
-.coming-soon{ border:1px dashed var(--border); border-radius:var(--radius-sm); padding:18px 20px; color:var(--text-dim); font-size:14.5px; background:var(--surface); }
-.project-detail{ display:none; }
-.project-detail.is-active{ display:block; }
-
-@media (max-width: 980px){
-  .hero .container{ grid-template-columns:1fr; }
-  .about .container{ grid-template-columns:1fr; }
-  .mindset-grid{ grid-template-columns:1fr; }
-  .skills-grid{ grid-template-columns:1fr; }
-  .project-grid{ grid-template-columns:1fr 1fr; }
-  .proof-grid{ grid-template-columns:1fr 1fr; }
-  .cert-grid{ grid-template-columns:1fr; }
-  .mini-cert-grid{ grid-template-columns:1fr 1fr; }
-  .services-grid{ grid-template-columns:1fr; }
-  .contact-grid{ grid-template-columns:1fr; }
-  section{ padding:90px 0; }
-}
-@media (max-width: 680px){
-  .nav-links, .nav-actions .btn{ display:none; }
-  .nav-toggle{ display:flex; }
-  .hero{ padding-top:130px; }
-  .project-grid{ grid-template-columns:1fr; }
-  .proof-grid{ grid-template-columns:1fr; }
-  .mini-cert-grid{ grid-template-columns:1fr; }
-  .form-row{ grid-template-columns:1fr; }
-  .resume-box{ flex-direction:column; align-items:flex-start; }
-  .footer-bottom{ flex-direction:column; align-items:flex-start; }
-}
-</style>
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<div class="bg-grid" aria-hidden="true"></div>
-<div class="bg-glow" aria-hidden="true"></div>
+  <!-- Ambient Dynamic Backgrounds -->
+  <canvas id="bgCanvas"></canvas>
+  <div class="bg-grid"></div>
+  <div class="bg-blood-moon"></div>
 
-<!-- ============ NAVIGATION ============ -->
-<header class="nav" id="nav">
-  <div class="container">
-    <button class="brand" onclick="goHome()"><span class="dot" aria-hidden="true"></span>HAXMED</button>
-    <nav class="nav-links" aria-label="Primary">
-      <a onclick="goHome('home')">Home</a>
-      <a onclick="goHome('about')">About</a>
-      <a onclick="goHome('skills')">Skills</a>
-      <a onclick="goHome('projects')">Projects</a>
-      <a onclick="goHome('services')">Services</a>
-      <a onclick="goHome('contact')">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <a onclick="goHome('contact')" class="btn btn-outline">Let's Talk</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  <!-- =========================================================
+       Navigation Bar
+       ========================================================= -->
+  <nav class="nav" id="nav" aria-label="Main Navigation">
+    <div class="container">
+      <button class="brand" onclick="goHome('home')" aria-label="HAXMED Home">
+        <img src="assets/images/haxmed-emblem.svg" alt="HAXMED Emblem" class="brand-emblem">
+        <span>HA<span class="brand-x">X</span>MED</span>
       </button>
-    </div>
-  </div>
-</header>
 
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a onclick="goHome('home')">Home</a>
-  <a onclick="goHome('about')">About</a>
-  <a onclick="goHome('skills')">Skills</a>
-  <a onclick="goHome('projects')">Projects</a>
-  <a onclick="goHome('services')">Services</a>
-  <a onclick="goHome('contact')">Contact</a>
-  <a onclick="goHome('contact')" class="btn btn-primary">Let's Talk</a>
-</div>
-
-<!-- ================================================================
-     HOME VIEW
-     ================================================================ -->
-<div id="view-home">
-<main id="home">
-
-  <section class="hero" aria-label="Introduction">
-    <div class="container">
-      <div class="hero-copy">
-        <span class="hero-label"><span class="pulse" aria-hidden="true"></span>CYBERSECURITY // PENETRATION TESTING</span>
-        <h1>I Find Vulnerabilities<br>Before <span class="accent">Attackers</span> Do.</h1>
-        <p class="lead">I'm a Junior Penetration Tester focused on web application security, network testing, vulnerability assessment, and security automation.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" onclick="goHome('projects')">View My Work</a>
-          <a class="btn btn-outline" onclick="goHome('contact')">Let's Talk</a>
-        </div>
-        <div class="hero-trust">
-          <span>Web Security</span>
-          <span>Network Pentesting</span>
-          <span>Security Automation</span>
-        </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certificates</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
       </div>
 
-      <div class="terminal" id="heroTerminal" aria-hidden="true">
-        <div class="terminal-bar">
-          <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
-          <span class="terminal-title">HAXMED@portfolio — ~/security</span>
-        </div>
-        <div class="terminal-body" id="terminalBody"></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="container scroll-cue">
-    <span>SCROLL TO EXPLORE</span>
-    <div class="arrow" aria-hidden="true"></div>
-  </div>
-
-  <!-- ABOUT -->
-  <section id="about" aria-label="About">
-    <div class="container about reveal">
-      <div>
-        <span class="section-label">01 // ABOUT</span>
-        <h2>Security Starts With Understanding the Attack Surface.</h2>
-      </div>
-    </div>
-    <div class="container about" style="margin-top:-20px;">
-      <div class="about-text reveal">
-        <p>I'm a Cybersecurity student at Helwan International Technological University (HITU) with a strong focus on penetration testing, vulnerability assessment, and offensive security. My experience combines academic knowledge with hands-on security training through platforms such as TryHackMe and PortSwigger Web Security Academy, where I have practiced identifying and exploiting real-world web and network vulnerabilities.</p>
-        <p>I also participated in the Digital Egypt Pioneers Initiative (DEPI), strengthening my technical foundation and exposure to industry-oriented cybersecurity practices.</p>
-        <p>My approach to security is highly practical: understand how a system works, identify where its security assumptions fail, validate the vulnerability safely, and document the findings clearly.</p>
-        <p>I'm particularly interested in web application security, network penetration testing, security automation, and vulnerability research, with the long-term goal of building expertise as a professional penetration tester.</p>
-      </div>
-
-      <div class="profile-card reveal">
-        <img class="profile-photo" src="assets/images/profile.jpg" alt="Portrait of Mohamed Hesham (HAXMED)">
-        <div class="profile-card-head">
-          <p class="name">HAXMED</p>
-          <span class="role">Junior Penetration Tester</span>
-        </div>
-        <div class="profile-card-section">
-          <h4>Focus</h4>
-          <div class="tag-list">
-            <span class="tag">Web Security</span>
-            <span class="tag">Network Security</span>
-            <span class="tag">Vulnerability Research</span>
-            <span class="tag">Automation</span>
-          </div>
-        </div>
-        <div class="profile-card-section">
-          <h4>Environment</h4>
-          <div class="tag-list">
-            <span class="tag">Linux</span>
-            <span class="tag">Kali Linux</span>
-            <span class="tag">Burp Suite</span>
-            <span class="tag">Nmap</span>
-            <span class="tag">Python</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECURITY MINDSET -->
-  <section aria-label="Security methodology">
-    <div class="container">
-      <div class="section-head reveal"><h2>How I Approach Security</h2></div>
-      <div class="mindset-grid reveal">
-        <div class="mindset-card"><span class="num">01 — Understand</span><h3>Map the surface</h3><p>Understand the application's architecture, technologies, services, and attack surface.</p></div>
-        <div class="mindset-card"><span class="num">02 — Validate</span><h3>Confirm the weakness</h3><p>Identify weaknesses and safely validate whether they can actually be exploited.</p></div>
-        <div class="mindset-card"><span class="num">03 — Improve</span><h3>Reduce the risk</h3><p>Document the impact and provide practical remediation recommendations.</p></div>
-      </div>
-      <div class="flow reveal" role="list" aria-label="Testing workflow">
-        <span class="step">RECON</span><span class="arrow">→</span>
-        <span class="step">ENUMERATION</span><span class="arrow">→</span>
-        <span class="step">DISCOVERY</span><span class="arrow">→</span>
-        <span class="step">VALIDATION</span><span class="arrow">→</span>
-        <span class="step">EXPLOITATION</span><span class="arrow">→</span>
-        <span class="step">REPORTING</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" aria-label="Technical skills">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-label">02 // TECHNICAL SKILLS</span>
-        <h2>Tools Are Only Useful When You Understand the Attack.</h2>
-      </div>
-      <div class="skills-grid reveal">
-        <div class="skill-card">
-          <div class="skill-card-head"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg></span><h3>Web Application Security</h3></div>
-          <div class="skill-tags">
-            <span class="tag">OWASP Top 10</span><span class="tag">Burp Suite</span><span class="tag">Authentication Testing</span><span class="tag">Authorization Testing</span>
-            <span class="tag">IDOR / Broken Access Control</span><span class="tag">File Upload Vulnerabilities</span><span class="tag">Path Traversal</span>
-            <span class="tag">Input Validation</span><span class="tag">Session Security</span><span class="tag">HTTP Request Analysis</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-card-head"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18a14 14 0 010-18z"/></svg></span><h3>Network Penetration Testing</h3></div>
-          <div class="skill-tags">
-            <span class="tag">Network Reconnaissance</span><span class="tag">Host Discovery</span><span class="tag">Port Scanning</span><span class="tag">Service Enumeration</span>
-            <span class="tag">Nmap</span><span class="tag">Nmap NSE Scripts</span><span class="tag">SMB Enumeration</span><span class="tag">Metasploit</span>
-            <span class="tag">Wireshark</span><span class="tag">Vulnerability Assessment</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-card-head"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span><h3>Scripting &amp; Automation</h3></div>
-          <div class="skill-tags">
-            <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Security Automation</span><span class="tag">Recon Automation</span>
-            <span class="tag">Network Scanning</span><span class="tag">HTTP Automation</span><span class="tag">Tool Orchestration</span>
-            <span class="tag">Output Parsing</span><span class="tag">CLI Security Workflows</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-card-head"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M7 8V6a2 2 0 012-2h6a2 2 0 012 2v2"/></svg></span><h3>Networking &amp; Firewalls</h3></div>
-          <div class="skill-tags">
-            <span class="tag">TCP/IP</span><span class="tag">OSI Model</span><span class="tag">IPv4 / IPv6</span><span class="tag">Subnetting</span>
-            <span class="tag">VLSM</span><span class="tag">VLAN</span><span class="tag">Routing</span><span class="tag">NAT</span>
-            <span class="tag">DHCP</span><span class="tag">FortiGate Firewall</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="tool-strip" aria-label="Tools used">
-    <div class="tool-track" aria-hidden="true">
-      <span>Burp Suite</span><span>Nmap</span><span>Metasploit</span><span>Wireshark</span><span>Kali Linux</span><span>Python</span><span>Bash</span><span>Git</span><span>Linux</span><span>TryHackMe</span><span>PortSwigger</span>
-      <span>Burp Suite</span><span>Nmap</span><span>Metasploit</span><span>Wireshark</span><span>Kali Linux</span><span>Python</span><span>Bash</span><span>Git</span><span>Linux</span><span>TryHackMe</span><span>PortSwigger</span>
-    </div>
-  </div>
-
-  <!-- PROJECTS -->
-  <section id="projects" aria-label="Projects">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-label">03 // SELECTED WORK</span>
-        <h2>Hands-On Security Projects.</h2>
-        <p>Practical security work built around reconnaissance, vulnerability discovery, exploitation, automation, and security analysis.</p>
-      </div>
-
-      <div class="project-grid reveal">
-        <button class="case-card" onclick="openProject('scraper')">
-          <div class="case-card-top"><span class="case-id mono">CASE_001</span><span class="case-badge">SECOND-YEAR PROJECT</span></div>
-          <img class="case-logo" src="assets/images/silentscrapers-logo.jpg" alt="Silent Scrapers logo" style="margin-bottom:14px;">
-          <h3>Silent Scraper Academy</h3>
-          <p class="subtitle">Vulnerable Web Application &amp; Security Learning Platform</p>
-          <div class="tags"><span class="tag">PHP</span><span class="tag">Node.js</span><span class="tag">Python (FastAPI)</span><span class="tag">Burp Suite</span></div>
-          <span class="cta">VIEW CASE STUDY →</span>
+      <div class="nav-actions">
+        <a href="assets/documents/mohamed-hesham-cv.pdf" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          CV
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
-
-        <button class="case-card" onclick="openProject('ctf')">
-          <div class="case-card-top"><span class="case-id mono">CASE_002</span><span class="case-badge">OFFENSIVE SECURITY</span></div>
-          <h3>CTF Competitions &amp; Security Challenges</h3>
-          <p class="subtitle">Hands-On Offensive Security &amp; Problem Solving</p>
-          <div class="tags"><span class="tag">Nmap</span><span class="tag">Burp Suite</span><span class="tag">Linux</span><span class="tag">Metasploit</span></div>
-          <span class="cta">EXPLORE CHALLENGES →</span>
-        </button>
-
       </div>
     </div>
-  </section>
+  </nav>
 
-  <!-- PROOF OF PRACTICE -->
-  <section aria-label="Proof of practice">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-label">04 // PROOF OF PRACTICE</span>
-        <h2>Learning by Breaking Things — Legally.</h2>
-      </div>
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#about" onclick="goHome('about')">About</a>
+    <a href="#skills" onclick="goHome('skills')">Skills</a>
+    <a href="#projects" onclick="goHome('projects')">Projects</a>
+    <a href="#certifications" onclick="goHome('certifications')">Certifications</a>
+    <a href="#services" onclick="goHome('services')">Services</a>
+    <a href="#contact" onclick="goHome('contact')">Contact</a>
+    <a href="assets/documents/mohamed-hesham-cv.pdf" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:20px;">Download Resume</a>
+  </div>
 
-      <div class="stats-strip reveal">
-        <div class="stat-item"><span class="stat-number" data-target="95">0</span><span class="stat-label">TryHackMe Rooms</span></div>
-        <div class="stat-item"><span class="stat-number" data-target="14">0</span><span class="stat-label">TryHackMe Badges</span></div>
-        <div class="stat-item"><span class="stat-number" data-target="40">0</span><span class="stat-label">PortSwigger Labs</span></div>
-        <div class="stat-item"><span class="stat-number" data-target="93">0</span><span class="stat-label">HackX Challenges</span></div>
-        <div class="stat-item"><span class="stat-number" data-target="17010">0</span><span class="stat-label">HackX Points</span></div>
-        <div class="stat-item"><span class="stat-number" data-target="120">0</span><span class="stat-label">ITI Training Hours</span></div>
-      </div>
+  <!-- =========================================================
+       Home Main View
+       ========================================================= -->
+  <main id="view-home">
 
-      <div class="proof-grid reveal">
-        <div class="proof-card"><span class="mark mono">01</span><h4>TryHackMe</h4><p>95 rooms completed, 14 badges earned — top 6% of all users. Completed the Junior Penetration Tester and Pre-Security learning paths.</p></div>
-        <div class="proof-card"><span class="mark mono">02</span><h4>PortSwigger Web Security Academy</h4><p>40 hands-on labs across four modules: Authentication (14), Access Control (13), File Upload (7), Path Traversal (6).</p></div>
-        <div class="proof-card"><span class="mark mono">03</span><h4>HackX CTF</h4><p>Competed and placed rank #40 of 280 entrants — verified certificate below.</p></div>
-        <div class="proof-card"><span class="mark mono">04</span><h4>Cyber Security — ITI</h4><p>120-hour program at the Information Technology Institute covering networking fundamentals, cybersecurity essentials, and ethical hacking.</p></div>
-      </div>
-      <p class="ethics-note reveal">Security testing is performed only with explicit authorization and within an agreed scope. No unauthorized testing or exploitation is performed.</p>
-    </div>
-  </section>
+    <!-- HERO SECTION -->
+    <header class="hero" id="home">
+      <div class="container">
+        <div class="hero-content reveal">
+          <span class="hero-tag">
+            <span class="pulse"></span>
+            DEFEND &bull; RESEARCH &bull; EVOLVE
+          </span>
+          <h1 class="hero-title">
+            I Find Vulnerabilities Before <span class="accent">Attackers</span> Do.
+          </h1>
+          <p class="hero-motto">
+            &ldquo;KNOWLEDGE IS POWER. ACCESS IS EVERYTHING.&rdquo;
+          </p>
+          <p class="hero-desc">
+            Mohamed Hesham (<strong>HAXMED</strong>) — Junior Penetration Tester dedicated to dissecting application logic, uncovering hidden attack surfaces, and engineering robust offensive security workflows.
+          </p>
 
-  <!-- CERTIFICATIONS -->
-  <section aria-label="Certifications">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-label">05 // CERTIFICATIONS</span>
-        <h2>Verified Credentials.</h2>
-        <p>Completed training and competitive events, shown here as issued.</p>
-      </div>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <span>View Case Studies</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <span>Schedule Engagement</span>
+            </a>
+          </div>
 
-      <div class="cert-marquee-wrap reveal" tabindex="0" aria-label="Verified certifications, scrolling. Hover or focus to pause.">
-        <div class="cert-marquee-track">
-        <div class="cert-m-card">
-          <img src="assets/certificates/cybersecurity-for-beginners.jpg" alt="Cybersecurity For Beginners certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Cybersecurity For Beginners</h4>
-            <span class="cert-m-issuer">ITI Mahara-Tech</span>
-            <p class="cert-m-stat">8 courses &middot; 35 hours</p>
-            <span class="cert-m-date">Completed 16 Apr 2026</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/cybersecurity-for-beginners.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
+          <div class="hero-stats">
+            <div class="hero-stat-item">
+              <div class="stat-number" data-target="120">0</div>
+              <div class="stat-label">Specialized ITI Hours</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="stat-number" data-target="10">0</div>
+              <div class="stat-label">Verified Certifications</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="stat-number" data-target="100">0</div>
+              <div class="stat-label">% Offensive Focus</div>
+            </div>
           </div>
         </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/hackx-ctf.jpg" alt="HackX CTF — Verified Achievement certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>HackX CTF — Verified Achievement</h4>
-            <span class="cert-m-issuer">HackX CTF Team</span>
-            <p class="cert-m-stat">Rank #40/280 &middot; 93 challenges &middot; 17,010 pts</p>
-            <span class="cert-m-date">Issued 30 Mar 2026</span>
-            
+
+        <!-- Kali Linux Terminal (3D Tilt Card) -->
+        <div class="terminal-wrapper reveal" data-tilt>
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+              </div>
+              <div class="terminal-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                <span>haxmed@kali: ~</span>
+              </div>
+              <div style="width: 40px;"></div>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+              <!-- Dynamically typed via JS -->
+            </div>
           </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/python-programming.jpg" alt="Introduction to Python Programming certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Introduction to Python Programming</h4>
-            <span class="cert-m-issuer">Edraak</span>
-            
-            <span class="cert-m-date">Completed 26 Nov 2024</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/python-programming.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/icdl-base.jpg" alt="ICDL Base certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>ICDL Base</h4>
-            <span class="cert-m-issuer">Edraak</span>
-            
-            <span class="cert-m-date">Awarded 20 Oct 2023</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/icdl-base.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/pre-security-tryhackme.jpg" alt="Pre-Security Learning Path certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Pre-Security Learning Path</h4>
-            <span class="cert-m-issuer">TryHackMe</span>
-            <p class="cert-m-stat">19h 10m &middot; THM-CFYCJBFD2B</p>
-            <span class="cert-m-date">5 Mar 2026</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/pre-security-tryhackme.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/cybersecurity-specialization.jpg" alt="Cybersecurity Specialization certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Cybersecurity Specialization</h4>
-            <span class="cert-m-issuer">Edraak</span>
-            
-            <span class="cert-m-date">Awarded 7 Aug 2023</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/cybersecurity-specialization.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/office-365.jpg" alt="Office 365 certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Office 365</h4>
-            <span class="cert-m-issuer">Edraak</span>
-            
-            <span class="cert-m-date">Awarded 10 Aug 2023</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/office-365.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/computer-hardware-basics.jpg" alt="Computer Hardware Basics certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Computer Hardware Basics</h4>
-            <span class="cert-m-issuer">Cisco Networking Academy</span>
-            
-            <span class="cert-m-date">24 Nov 2024</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/computer-hardware-basics.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/iti-cyber-security-120hrs.jpg" alt="Cyber Security (120 hrs) certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Cyber Security (120 hrs)</h4>
-            <span class="cert-m-issuer">Information Technology Institute (ITI)</span>
-            
-            <span class="cert-m-date">26 Jul – 18 Aug 2026</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/iti-cyber-security-120hrs.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <div class="cert-m-noimg" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V5l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div class="cert-m-body">
-            <h4>Junior Penetration Tester</h4>
-            <span class="cert-m-issuer">TryHackMe</span>
-            
-            <span class="cert-m-date">Learning path completed</span>
-            
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <div class="cert-m-noimg" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V5l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div class="cert-m-body">
-            <h4>Cybersecurity Essentials</h4>
-            <span class="cert-m-issuer">Cisco / MCIT</span>
-            
-            <span class="cert-m-date">Learning path completed</span>
-            
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/ngfw-fortinet.jpg" alt="Introduction to Next Generation Firewall 1.0 certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Introduction to Next Generation Firewall 1.0</h4>
-            <span class="cert-m-issuer">Fortinet Training Institute</span>
-            
-            <span class="cert-m-date">20 Sep 2026</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/ngfw-fortinet.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/cybersecurity-for-beginners.jpg" alt="Cybersecurity For Beginners certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Cybersecurity For Beginners</h4>
-            <span class="cert-m-issuer">ITI Mahara-Tech</span>
-            <p class="cert-m-stat">8 courses &middot; 35 hours</p>
-            <span class="cert-m-date">Completed 16 Apr 2026</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/cybersecurity-for-beginners.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/hackx-ctf.jpg" alt="HackX CTF — Verified Achievement certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>HackX CTF — Verified Achievement</h4>
-            <span class="cert-m-issuer">HackX CTF Team</span>
-            <p class="cert-m-stat">Rank #40/280 &middot; 93 challenges &middot; 17,010 pts</p>
-            <span class="cert-m-date">Issued 30 Mar 2026</span>
-            
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/python-programming.jpg" alt="Introduction to Python Programming certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Introduction to Python Programming</h4>
-            <span class="cert-m-issuer">Edraak</span>
-            
-            <span class="cert-m-date">Completed 26 Nov 2024</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/python-programming.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/icdl-base.jpg" alt="ICDL Base certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>ICDL Base</h4>
-            <span class="cert-m-issuer">Edraak</span>
-            
-            <span class="cert-m-date">Awarded 20 Oct 2023</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/icdl-base.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/pre-security-tryhackme.jpg" alt="Pre-Security Learning Path certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Pre-Security Learning Path</h4>
-            <span class="cert-m-issuer">TryHackMe</span>
-            <p class="cert-m-stat">19h 10m &middot; THM-CFYCJBFD2B</p>
-            <span class="cert-m-date">5 Mar 2026</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/pre-security-tryhackme.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/cybersecurity-specialization.jpg" alt="Cybersecurity Specialization certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Cybersecurity Specialization</h4>
-            <span class="cert-m-issuer">Edraak</span>
-            
-            <span class="cert-m-date">Awarded 7 Aug 2023</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/cybersecurity-specialization.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/office-365.jpg" alt="Office 365 certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Office 365</h4>
-            <span class="cert-m-issuer">Edraak</span>
-            
-            <span class="cert-m-date">Awarded 10 Aug 2023</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/office-365.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/computer-hardware-basics.jpg" alt="Computer Hardware Basics certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Computer Hardware Basics</h4>
-            <span class="cert-m-issuer">Cisco Networking Academy</span>
-            
-            <span class="cert-m-date">24 Nov 2024</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/computer-hardware-basics.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/iti-cyber-security-120hrs.jpg" alt="Cyber Security (120 hrs) certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Cyber Security (120 hrs)</h4>
-            <span class="cert-m-issuer">Information Technology Institute (ITI)</span>
-            
-            <span class="cert-m-date">26 Jul – 18 Aug 2026</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/iti-cyber-security-120hrs.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <div class="cert-m-noimg" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V5l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div class="cert-m-body">
-            <h4>Junior Penetration Tester</h4>
-            <span class="cert-m-issuer">TryHackMe</span>
-            
-            <span class="cert-m-date">Learning path completed</span>
-            
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <div class="cert-m-noimg" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V5l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div class="cert-m-body">
-            <h4>Cybersecurity Essentials</h4>
-            <span class="cert-m-issuer">Cisco / MCIT</span>
-            
-            <span class="cert-m-date">Learning path completed</span>
-            
-          </div>
-        </div>
-        <div class="cert-m-card">
-          <img src="assets/certificates/ngfw-fortinet.jpg" alt="Introduction to Next Generation Firewall 1.0 certificate" loading="lazy">
-          <div class="cert-m-body">
-            <h4>Introduction to Next Generation Firewall 1.0</h4>
-            <span class="cert-m-issuer">Fortinet Training Institute</span>
-            
-            <span class="cert-m-date">20 Sep 2026</span>
-            <a class="cert-m-pdf" href="assets/certificates/pdf/ngfw-fortinet.pdf" target="_blank" rel="noopener">View original PDF ↗</a>
-          </div>
-        </div>
         </div>
       </div>
+    </header>
 
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" aria-label="Services">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-label">06 // SERVICES</span>
-        <h2>Security Testing Focused on Real Attack Surfaces.</h2>
-        <p>I help identify security weaknesses, validate technical risk, and provide actionable recommendations for improving security posture.</p>
-      </div>
-      <div class="services-grid reveal">
-        <div class="service-card">
-          <h3>Web Application Vulnerability Assessment</h3>
-          <p>Assess web applications for common and application-specific security weaknesses using manual testing and industry-standard tools.</p>
-          <ul><li>OWASP Top 10 Assessment</li><li>Authentication &amp; Authorization Testing</li><li>IDOR &amp; File Upload Testing</li><li>Path Traversal &amp; Input Validation</li><li>Session Security</li><li>Burp Suite Testing</li></ul>
-        </div>
-        <div class="service-card">
-          <h3>Network Penetration Testing</h3>
-          <p>Assess network infrastructure to identify exposed services and validate real attack paths.</p>
-          <ul><li>Network Reconnaissance &amp; Host Discovery</li><li>Port Scanning &amp; Service Enumeration</li><li>SMB Enumeration</li><li>Vulnerability Assessment</li><li>Controlled Exploitation</li><li>Network Security Analysis</li></ul>
-        </div>
-        <div class="service-card">
-          <h3>Security Configuration Review</h3>
-          <p>Review network and system configurations against security best practices.</p>
-          <ul><li>Firewall Configuration Review</li><li>Exposed Services Analysis</li><li>Network Security Controls</li><li>Attack Surface Analysis</li><li>Security Hardening Recommendations</li></ul>
-        </div>
-        <div class="service-card">
-          <h3>Security Automation</h3>
-          <p>Build lightweight tooling that automates repetitive reconnaissance and scanning work.</p>
-          <ul><li>Python Security Scripts</li><li>Bash Automation</li><li>Reconnaissance Tools</li><li>Network Scanning Utilities</li><li>Custom Security Workflows</li></ul>
+    <!-- METHODOLOGY PIPELINE RIBBON -->
+    <div class="pipeline-ribbon">
+      <div class="container">
+        <div class="pipeline-track">
+          <div class="pipeline-step"><span class="step-slash">RECON //</span> Intelligence Gathering</div>
+          <span class="pipeline-separator">&bull;</span>
+          <div class="pipeline-step"><span class="step-slash">EXPLOIT //</span> Attack Validation</div>
+          <span class="pipeline-separator">&bull;</span>
+          <div class="pipeline-step"><span class="step-slash">POST-EXPLOIT //</span> Lateral Movement</div>
+          <span class="pipeline-separator">&bull;</span>
+          <div class="pipeline-step"><span class="step-slash">PERSISTENCE //</span> Impact Demonstration</div>
+          <span class="pipeline-separator">&bull;</span>
+          <div class="pipeline-step"><span class="step-slash">REPORT //</span> Actionable Remediation</div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- EDUCATION -->
-  <section aria-label="Education and training">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-label">07 // EXPERIENCE &amp; EDUCATION</span>
-        <h2>Built on Structured Learning and Practice.</h2>
-      </div>
-      <div class="timeline reveal">
-        <div class="timeline-item"><span class="when mono">EXPERIENCE — SUMMERS 2024, 2025 &amp; 2026 (SEASONAL)</span><h4>Network Engineer — Taramatic</h4><p>Progressed from Network Technician to Network Engineer. Installed structured network cabling, equipment racks, and a CCTV system at a client site; diagnosed and resolved a static-IP outage without downtime; owned technical documentation for the site.</p></div>
-        <div class="timeline-item"><span class="when mono">EXPERIENCE — SUMMER 2025</span><h4>Field Network Security Engineer — FortiGate Firewall Deployment Project</h4><p>Deployed and configured FortiGate firewalls across 20 sites in 3 governorates over an 11-day rollout, leading technical execution within a 2-person field team.</p></div>
-        <div class="timeline-item"><span class="when mono">EDUCATION — EXPECTED 2027</span><h4>B.Sc. in Cybersecurity — Helwan International Technological University (HITU)</h4><p>Relevant courses: Networking Fundamentals, Operating Systems, Information Security.</p></div>
-        <div class="timeline-item"><span class="when mono">TRAINING — 26 JUL – 18 AUG 2026</span><h4>Cyber Security (120 hrs) — Information Technology Institute (ITI)</h4><p>Computer Network Fundamentals, Advanced Network, Cyber Security Essentials, Ethical Hacking, and HCCDA Tech Essentials (Huawei Cloud).</p></div>
-        <div class="timeline-item"><span class="when mono">TRAINING — JUL–DEC 2026 (ONGOING)</span><h4>Digital Egypt Pioneers Initiative (DEPI)</h4><p>Infrastructure &amp; Security track — Vulnerability Analyst and Penetration Tester. A 6-month, government-backed program combining infrastructure security, penetration testing, and freelance career readiness.</p></div>
-        <div class="timeline-item"><span class="when mono">CERTIFICATION — APRIL 2026</span><h4>Cybersecurity For Beginners — ITI Mahara-Tech</h4><p>8 courses / 35 hours.</p></div>
-      </div>
-      <div class="resume-box reveal" style="margin-top:56px;">
-        <div><h3>Want the complete picture?</h3><p>Download my resume for a full breakdown of my background.</p></div>
-        <a href="assets/documents/mohamed-hesham-cv.pdf" download="Mohamed-Hesham-CV.pdf" class="btn btn-primary">Download Resume</a>
-      </div>
-    </div>
-  </section>
+    <!-- ABOUT SECTION -->
+    <section id="about" aria-label="About HAXMED">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">01 // PHILOSOPHY</span>
+          <h2>Security Starts With Understanding the Attack Surface.</h2>
+          <p>Effective defense begins by thinking like an adversary. I focus on manual verification and business logic testing rather than blind scanner outputs.</p>
+        </div>
 
-  <!-- CONTACT -->
-  <section id="contact" aria-label="Contact">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-label">08 // CONTACT</span>
-        <h2>Have a Security Challenge?<br>Let's Talk.</h2>
-        <p>Whether you need a web application assessed, want to discuss a cybersecurity project, or are looking for a penetration-testing opportunity, feel free to get in touch.</p>
-      </div>
+        <div class="about-grid">
+          <div class="about-narrative reveal">
+            <p>
+              I am an Offensive Security Practitioner based in Egypt, studying <strong>Cybersecurity at Helwan International Technological University (HITU)</strong>. I specialize in identifying subtle vulnerabilities across web applications, networks, and automated systems.
+            </p>
+            <p>
+              My hands-on experience spans rigorous training at the <strong>Information Technology Institute (ITI - 120hrs)</strong>, practical enterprise deployments with Fortinet Next-Gen Firewalls, competitive CTFs (HackX), and continuous labs on TryHackMe and PortSwigger Web Security Academy.
+            </p>
+            <p>
+              Every finding I report is verified manually, quantified by risk impact, and accompanied by practical remediation advice to help development and infrastructure teams fortify their perimeters.
+            </p>
+          </div>
 
-      <div class="contact-grid reveal">
-        <div>
-          <div class="contact-links">
-            <div class="contact-link contact-link-email">
-              <a class="contact-link-anchor" href="mailto:mohamedhesham1033@gmail.com"><span>Email</span><span class="k">mohamedhesham1033@gmail.com</span></a>
-              <button type="button" class="copy-btn" data-copy-text="mohamedhesham1033@gmail.com" aria-label="Copy email address">
-                <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 01-1-1V4a1 1 0 011-1h10a1 1 0 011 1v1"/></svg>
-                <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="methodology-cards reveal">
+            <div class="method-card" data-tilt>
+              <span class="method-num">01 / RECON</span>
+              <h3>Map the Surface</h3>
+              <p>Identify all endpoints, subdomains, open services, exposed APIs, and architectural dependencies before launching attacks.</p>
+            </div>
+            <div class="method-card" data-tilt>
+              <span class="method-num">02 / EXPLOIT</span>
+              <h3>Confirm the Weakness</h3>
+              <p>Execute surgical manual attacks to validate that potential flaws represent genuine risks, eliminating false positives.</p>
+            </div>
+            <div class="method-card" data-tilt>
+              <span class="method-num">03 / REMEDIATE</span>
+              <h3>Reduce the Risk</h3>
+              <p>Deliver prioritized, developer-friendly remediation steps that address the root cause and harden defenses permanently.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience & Education Timeline -->
+        <div class="timeline reveal">
+          <div class="timeline-item">
+            <div class="timeline-date">2026 &mdash; PRESENT</div>
+            <div class="timeline-content">
+              <h4>B.Sc. in Cybersecurity &bull; Helwan International Technological University (HITU)</h4>
+              <p>Focus on network security, operating system internals, cryptographic algorithms, vulnerability assessment, and defense architectures.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">SUMMER 2026</div>
+            <div class="timeline-content">
+              <h4>Cyber Security Intensive Track (120 hrs) &bull; Information Technology Institute (ITI)</h4>
+              <p>In-depth coverage of offensive web security, penetration testing methodologies, network attacks, packet dissection, and defensive controls.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">PRACTICAL PROJECT</div>
+            <div class="timeline-content">
+              <h4>Field Network Security Engineer &bull; FortiGate Next-Generation Firewall Deployment</h4>
+              <p>Hands-on installation, policy configuration, NAT setup, VPN tunnels, and security profile enforcement for enterprise environments.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">INITIATIVE</div>
+            <div class="timeline-content">
+              <h4>Digital Egypt Pioneers Initiative (DEPI)</h4>
+              <p>Nationwide advanced training scholarship focusing on technology leadership and offensive/defensive cybersecurity skills.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" aria-label="Technical Skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">02 // ARSENAL</span>
+          <h2>Tools Are Only Useful When You Understand the Attack.</h2>
+          <p>A structured breakdown of my offensive security capabilities, specialized tools, and technical competencies.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Web Security -->
+          <div class="skill-card reveal" data-tilt>
+            <div class="skill-header">
+              <div class="skill-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </div>
+              <h3>Web Application Security</h3>
+            </div>
+            <p class="skill-desc">
+              Thorough testing against the OWASP Top 10, covering business logic flaws, authentication bypasses, broken access control (IDOR), and injection vulnerabilities.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Burp Suite Professional</span>
+              <span class="skill-tag">OWASP Top 10</span>
+              <span class="skill-tag">SQL Injection</span>
+              <span class="skill-tag">Cross-Site Scripting (XSS)</span>
+              <span class="skill-tag">SSRF &amp; CSRF</span>
+              <span class="skill-tag">Broken Access Control</span>
+              <span class="skill-tag">FFUF &amp; Gobuster</span>
+            </div>
+          </div>
+
+          <!-- Network Pentesting -->
+          <div class="skill-card reveal" data-tilt>
+            <div class="skill-header">
+              <div class="skill-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+              </div>
+              <h3>Network Penetration Testing</h3>
+            </div>
+            <p class="skill-desc">
+              Network mapping, service enumeration, protocol weakness identification, credential brute-forcing, and vulnerability exploitation across internal subnets.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Nmap Deep Scanning</span>
+              <span class="skill-tag">Metasploit Framework</span>
+              <span class="skill-tag">Wireshark Packet Analysis</span>
+              <span class="skill-tag">SMB &amp; NetBIOS Enumeration</span>
+              <span class="skill-tag">Active Directory Basics</span>
+              <span class="skill-tag">Linux / Unix Privilege Escalation</span>
+            </div>
+          </div>
+
+          <!-- Scripting & Automation -->
+          <div class="skill-card reveal" data-tilt>
+            <div class="skill-header">
+              <div class="skill-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <h3>Scripting &amp; Security Automation</h3>
+            </div>
+            <p class="skill-desc">
+              Building custom reconnaissance scripts, automated vulnerability filters, brute-forcers, and proof-of-concept exploit scripts in Python and Bash.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Python 3</span>
+              <span class="skill-tag">Bash Scripting</span>
+              <span class="skill-tag">Requests &amp; BeautifulSoup</span>
+              <span class="skill-tag">FastAPI &amp; REST APIs</span>
+              <span class="skill-tag">Custom PoC Development</span>
+              <span class="skill-tag">Security Automation</span>
+            </div>
+          </div>
+
+          <!-- Firewalls & Infrastructure -->
+          <div class="skill-card reveal" data-tilt>
+            <div class="skill-header">
+              <div class="skill-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <h3>Networking &amp; Next-Gen Firewalls</h3>
+            </div>
+            <p class="skill-desc">
+              Core TCP/IP routing &amp; switching, subnetting, VPN tunnels, and enterprise firewall security policies configured on Fortinet FortiGate hardware.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Fortinet FortiGate NGFW</span>
+              <span class="skill-tag">TCP/IP Protocols</span>
+              <span class="skill-tag">Subnetting &amp; VLANs</span>
+              <span class="skill-tag">IPsec &amp; SSL VPNs</span>
+              <span class="skill-tag">Security Policies &amp; NAT</span>
+              <span class="skill-tag">Traffic Inspection</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" aria-label="Projects & Case Studies">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">03 // FIELD WORK</span>
+          <h2>Hands-On Security Projects.</h2>
+          <p>Detailed case studies showcasing technical execution, attack methodology, and lessons learned from live environments.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Silent Scraper Academy -->
+          <div class="project-card reveal" data-tilt>
+            <div>
+              <span class="project-badge">TRAINING PLATFORM LAB</span>
+              <h3>Silent Scraper Academy</h3>
+              <p>
+                A vulnerable web application &amp; cybersecurity training platform engineered to simulate real-world attack scenarios (SQLi, IDOR, Auth Bypass, XSS) in a controlled environment.
+              </p>
+              <div class="project-meta-list">
+                <div class="project-meta-item">Scope: <strong>Web App Lab</strong></div>
+                <div class="project-meta-item">Stack: <strong>PHP, Node.js, Python FastAPI</strong></div>
+                <div class="project-meta-item">Testing: <strong>Burp Suite, FFUF, Nmap</strong></div>
+              </div>
+            </div>
+            <button class="btn btn-outline" onclick="openProject('scraper')">
+              <span>Read Case Study</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Project 2: CTF & Exploitation -->
+          <div class="project-card reveal" data-tilt>
+            <div>
+              <span class="project-badge">OFFENSIVE PRACTICE</span>
+              <h3>CTF Competitions &amp; Security Challenges</h3>
+              <p>
+                Applied offensive security operations across competitive CTFs (HackX CTF) and labs (TryHackMe, PortSwigger), demonstrating systematic enumeration and exploitation.
+              </p>
+              <div class="project-meta-list">
+                <div class="project-meta-item">Achievement: <strong>HackX CTF Verified</strong></div>
+                <div class="project-meta-item">Methodology: <strong>Recon to PrivEsc</strong></div>
+                <div class="project-meta-item">Arsenal: <strong>Metasploit, Nmap, Burp Suite</strong></div>
+              </div>
+            </div>
+            <button class="btn btn-outline" onclick="openProject('ctf')">
+              <span>Read Case Study</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS MARQUEE -->
+    <section id="certifications" aria-label="Verified Certifications">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">04 // CREDENTIALS</span>
+          <h2>Verified Credentials.</h2>
+          <p>Completed intensive training tracks and competitive certifications, verified and presented as issued.</p>
+        </div>
+
+        <div class="cert-marquee-wrap reveal" tabindex="0" aria-label="Verified certifications track">
+          <div class="cert-marquee-track">
+            <!-- Card 1 -->
+            <div class="cert-m-card">
+              <img src="assets/certificates/iti-cyber-security-120hrs.jpg" alt="ITI Cyber Security 120hrs certificate" loading="lazy">
+              <div class="cert-m-body">
+                <h4>Cyber Security (120 hrs)</h4>
+                <span class="cert-m-issuer">Information Technology Institute (ITI)</span>
+                <p class="cert-m-stat">Intensive Program &bull; 120 Hours</p>
+                <a class="cert-m-pdf" href="assets/certificates/pdf/iti-cyber-security-120hrs.pdf" target="_blank" rel="noopener">View Verified PDF &rarr;</a>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="cert-m-card">
+              <img src="assets/certificates/hackx-ctf.jpg" alt="HackX CTF Verified Achievement" loading="lazy">
+              <div class="cert-m-body">
+                <h4>HackX CTF &mdash; Verified Achievement</h4>
+                <span class="cert-m-issuer">HackX CTF Operations</span>
+                <p class="cert-m-stat">Hands-On Offensive Competition</p>
+                <span class="cert-m-pdf">Field Verified Result</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="cert-m-card">
+              <img src="assets/certificates/ngfw-fortinet.jpg" alt="Fortinet NGFW Certificate" loading="lazy">
+              <div class="cert-m-body">
+                <h4>Introduction to Next Generation Firewall</h4>
+                <span class="cert-m-issuer">Fortinet Network Security Academy</span>
+                <p class="cert-m-stat">NGFW Architecture &bull; Policies &bull; NAT</p>
+                <a class="cert-m-pdf" href="assets/certificates/pdf/ngfw-fortinet.pdf" target="_blank" rel="noopener">View Verified PDF &rarr;</a>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="cert-m-card">
+              <img src="assets/certificates/pre-security-tryhackme.jpg" alt="TryHackMe Pre-Security" loading="lazy">
+              <div class="cert-m-body">
+                <h4>Pre-Security Learning Path</h4>
+                <span class="cert-m-issuer">TryHackMe</span>
+                <p class="cert-m-stat">Networks &bull; Web &bull; OS Fundamentals</p>
+                <a class="cert-m-pdf" href="assets/certificates/pdf/pre-security-tryhackme.pdf" target="_blank" rel="noopener">View Verified PDF &rarr;</a>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="cert-m-card">
+              <img src="assets/certificates/cybersecurity-for-beginners.jpg" alt="Cybersecurity For Beginners" loading="lazy">
+              <div class="cert-m-body">
+                <h4>Cybersecurity For Beginners</h4>
+                <span class="cert-m-issuer">ITI Mahara-Tech</span>
+                <p class="cert-m-stat">8 courses &bull; 35 hours</p>
+                <a class="cert-m-pdf" href="assets/certificates/pdf/cybersecurity-for-beginners.pdf" target="_blank" rel="noopener">View Verified PDF &rarr;</a>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="cert-m-card">
+              <img src="assets/certificates/python-programming.jpg" alt="Python Programming" loading="lazy">
+              <div class="cert-m-body">
+                <h4>Introduction to Python Programming</h4>
+                <span class="cert-m-issuer">Mahara-Tech</span>
+                <p class="cert-m-stat">Scripting &amp; Algorithms</p>
+                <a class="cert-m-pdf" href="assets/certificates/pdf/python-programming.pdf" target="_blank" rel="noopener">View Verified PDF &rarr;</a>
+              </div>
+            </div>
+
+            <!-- Duplicate for seamless infinite loop -->
+            <div class="cert-m-card">
+              <img src="assets/certificates/iti-cyber-security-120hrs.jpg" alt="ITI Cyber Security 120hrs certificate" loading="lazy">
+              <div class="cert-m-body">
+                <h4>Cyber Security (120 hrs)</h4>
+                <span class="cert-m-issuer">Information Technology Institute (ITI)</span>
+                <p class="cert-m-stat">Intensive Program &bull; 120 Hours</p>
+                <a class="cert-m-pdf" href="assets/certificates/pdf/iti-cyber-security-120hrs.pdf" target="_blank" rel="noopener">View Verified PDF &rarr;</a>
+              </div>
+            </div>
+
+            <div class="cert-m-card">
+              <img src="assets/certificates/hackx-ctf.jpg" alt="HackX CTF Verified Achievement" loading="lazy">
+              <div class="cert-m-body">
+                <h4>HackX CTF &mdash; Verified Achievement</h4>
+                <span class="cert-m-issuer">HackX CTF Operations</span>
+                <p class="cert-m-stat">Hands-On Offensive Competition</p>
+                <span class="cert-m-pdf">Field Verified Result</span>
+              </div>
+            </div>
+
+            <div class="cert-m-card">
+              <img src="assets/certificates/ngfw-fortinet.jpg" alt="Fortinet NGFW Certificate" loading="lazy">
+              <div class="cert-m-body">
+                <h4>Introduction to Next Generation Firewall</h4>
+                <span class="cert-m-issuer">Fortinet Network Security Academy</span>
+                <p class="cert-m-stat">NGFW Architecture &bull; Policies &bull; NAT</p>
+                <a class="cert-m-pdf" href="assets/certificates/pdf/ngfw-fortinet.pdf" target="_blank" rel="noopener">View Verified PDF &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" aria-label="Services & Focus Areas">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">05 // CAPABILITIES</span>
+          <h2>Security Testing Focused on Real Attack Surfaces.</h2>
+          <p>Practical assessments designed to locate flaws, quantify exposure, and deliver actionable technical guidance.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card reveal" data-tilt>
+            <span class="service-num">01 / WEB ASSESSMENT</span>
+            <h3>Web Application Vulnerability Assessment</h3>
+            <p>
+              In-depth manual inspection of client-server communication, authentication flows, authorization checks, and server-side logic to uncover OWASP Top 10 flaws.
+            </p>
+            <div class="service-features">
+              <div class="service-feature-item">Authentication &amp; Session Management Testing</div>
+              <div class="service-feature-item">API Endpoint &amp; Business Logic Validation</div>
+              <div class="service-feature-item">Injection &amp; Parameter Tampering Analysis</div>
+            </div>
+          </div>
+
+          <div class="service-card reveal" data-tilt>
+            <span class="service-num">02 / NETWORK PENTEST</span>
+            <h3>Network Penetration Testing</h3>
+            <p>
+              Simulating internal adversary techniques to map network topology, detect misconfigurations, audit exposed services, and uncover unauthorized pivot points.
+            </p>
+            <div class="service-features">
+              <div class="service-feature-item">Port &amp; Service Vulnerability Identification</div>
+              <div class="service-feature-item">Weak Protocol &amp; Default Credential Audits</div>
+              <div class="service-feature-item">Internal Network Lateral Movement Scenarios</div>
+            </div>
+          </div>
+
+          <div class="service-card reveal" data-tilt>
+            <span class="service-num">03 / CONFIG REVIEW</span>
+            <h3>Security Configuration Review</h3>
+            <p>
+              Auditing network devices, web server parameters, and firewall rules to eliminate hardening deficiencies that expose internal assets to the public web.
+            </p>
+            <div class="service-features">
+              <div class="service-feature-item">FortiGate Firewall Rulebase &amp; NAT Auditing</div>
+              <div class="service-feature-item">Web Server Headers &amp; TLS Configuration</div>
+              <div class="service-feature-item">Least Privilege Access Enforcement</div>
+            </div>
+          </div>
+
+          <div class="service-card reveal" data-tilt>
+            <span class="service-num">04 / AUTOMATION</span>
+            <h3>Security Automation &amp; Scripting</h3>
+            <p>
+              Engineering custom Python and Bash tools to accelerate repetitive enumeration tasks, monitor attack surfaces continuously, and validate patch effectiveness.
+            </p>
+            <div class="service-features">
+              <div class="service-feature-item">Custom Recon &amp; Enumeration Scripts</div>
+              <div class="service-feature-item">Automated Verification of Known CVEs</div>
+              <div class="service-feature-item">Continuous Attack Surface Monitoring</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" aria-label="Contact HAXMED">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">06 // INITIATE TRANSMISSION</span>
+          <h2>Have a Security Challenge?<br>Let's Talk.</h2>
+          <p>Whether you need an offensive assessment of your application, want to collaborate on security research, or discuss an opportunity, reach out directly.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left Info Column -->
+          <div class="contact-info reveal">
+            <h3>Direct Channels</h3>
+            <p>
+              I am available for junior penetration testing positions, security assessment contracts, and collaborative red team research.
+            </p>
+
+            <div class="contact-channels">
+              <div class="contact-channel-card">
+                <div class="channel-left">
+                  <div class="channel-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  </div>
+                  <div class="channel-text">
+                    <span class="channel-label">PRIMARY EMAIL</span>
+                    <span class="channel-val">mohamedhesham1033@gmail.com</span>
+                  </div>
+                </div>
+                <button class="copy-btn" data-copy-text="mohamedhesham1033@gmail.com" aria-label="Copy email address">
+                  <svg class="icon-copy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  COPY
+                </button>
+              </div>
+
+              <div class="contact-channel-card">
+                <div class="channel-left">
+                  <div class="channel-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
+                  <div class="channel-text">
+                    <span class="channel-label">LOCATION</span>
+                    <span class="channel-val">Cairo, Egypt (Available Globally / Remote)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-badges">
+              <a href="https://github.com/0xHaxmed" target="_blank" rel="noopener" class="social-badge-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/mohamed-heshame-093232300/" target="_blank" rel="noopener" class="social-badge-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                LinkedIn
+              </a>
+              <a href="https://tryhackme.com/p/MohamedHesham.22" target="_blank" rel="noopener" class="social-badge-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                TryHackMe
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Form Column (Web3Forms Armed) -->
+          <div class="contact-form-box reveal" data-tilt>
+            <!-- 
+              Web3Forms: Replace data-access-key with your access key from https://web3forms.com 
+              If left as is, submission gracefully alerts the visitor and provides direct email link!
+            -->
+            <form id="contactForm" data-access-key="YOUR_ACCESS_KEY_HERE" novalidate>
+              <!-- Anti-Spam Honeypot Field -->
+              <input type="text" name="website" id="website" style="display:none;" tabindex="-1" autocomplete="off">
+
+              <div class="form-group" id="field-name">
+                <label for="name">YOUR NAME / ENTITY *</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Alex Vance or Security Team" required>
+              </div>
+
+              <div class="form-group" id="field-email">
+                <label for="email">BUSINESS EMAIL *</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="name@company.com" required>
+              </div>
+
+              <div class="form-group" id="field-type">
+                <label for="projectType">ENGAGEMENT FOCUS *</label>
+                <select id="projectType" name="projectType" class="form-control" required>
+                  <option value="" disabled selected>Select assessment scope...</option>
+                  <option value="Web Pentesting">Web Application Security Assessment</option>
+                  <option value="Network Pentesting">Internal Network Penetration Testing</option>
+                  <option value="Configuration Audit">Firewall &amp; Configuration Audit</option>
+                  <option value="Full-Time Role">Full-Time / Junior Pentester Role</option>
+                  <option value="Other Inquiry">Other Security Research &amp; Inquiry</option>
+                </select>
+              </div>
+
+              <div class="form-group" id="field-message">
+                <label for="message">ENGAGEMENT OBJECTIVE *</label>
+                <textarea id="message" name="message" class="form-control" placeholder="Describe scope, targets, or specific security concerns..." required></textarea>
+              </div>
+
+              <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%;">
+                <span>TRANSMIT INQUIRY</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
               </button>
-            </div>
-            <a class="contact-link" href="https://www.linkedin.com/in/mohamed-heshame-093232300/" target="_blank" rel="noopener"><span>LinkedIn</span><span class="k">/in/mohamed-heshame</span></a>
-            <a class="contact-link" href="https://github.com/456mohamed456" target="_blank" rel="noopener"><span>GitHub</span><span class="k">/456mohamed456</span></a>
-            <a class="contact-link" href="https://www.instagram.com/mohamedheshame_official/" target="_blank" rel="noopener"><span>Instagram</span><span class="k">@mohamedheshame_official</span></a>
-            <a class="contact-link" href="https://wa.me/201011625709" target="_blank" rel="noopener"><span>WhatsApp</span><span class="k">+20 101 162 5709</span></a>
+
+              <div id="formStatus" class="form-status" role="alert" aria-live="polite"></div>
+            </form>
           </div>
         </div>
-
-        <form id="contactForm" novalidate>
-          <div class="form-row">
-            <div class="field" id="field-name"><label for="name">Name</label><input type="text" id="name" name="name" autocomplete="name" required><span class="error-msg">Please enter your name.</span></div>
-            <div class="field" id="field-email"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required><span class="error-msg">Please enter a valid email.</span></div>
-          </div>
-          <div class="form-row">
-            <div class="field" id="field-company"><label for="company">Company (optional)</label><input type="text" id="company" name="company" autocomplete="organization"></div>
-            <div class="field" id="field-type">
-              <label for="projectType">Project Type</label>
-              <select id="projectType" name="projectType" required>
-                <option value="" disabled selected>Select an option</option>
-                <option>Web Application Security</option><option>Network Security</option><option>Vulnerability Assessment</option>
-                <option>Security Automation</option><option>Career Opportunity</option><option>Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="field" id="field-message"><label for="message">Message</label><textarea id="message" name="message" required></textarea><span class="error-msg">Please write a short message.</span></div>
-          <div style="position:absolute; left:-9999px;" aria-hidden="true">
-            <label for="website">Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-          </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-          <div class="form-status" id="formStatus" role="status"></div>
-        </form>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="final-cta" aria-label="Final call to action">
-    <div class="container reveal">
-      <h2>Find the weakness.<br>Understand the risk.<br>Strengthen the system.</h2>
-      <p>Let's identify security weaknesses before attackers do.</p>
-      <a class="btn btn-primary" onclick="goHome('contact')">Start a Conversation</a>
-    </div>
-  </section>
+  </main>
 
-</main>
+  <!-- =========================================================
+       In-Page Project Detail View
+       ========================================================= -->
+  <div id="view-project">
 
-<footer>
-  <div class="container">
-    <div class="terminal footer-terminal">
-      <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-title">HAXMED@portfolio — ~/contact</span></div>
-      <div class="terminal-body">
-        <p class="line"><span class="prompt">$</span> whoami</p>
-        <p class="line strong">Mohamed Hesham<br>Junior Penetration Tester</p>
-        <p class="line"><span class="prompt">$</span> mission</p>
-        <p class="line strong">Find vulnerabilities.<br>Understand attack paths.<br>Reduce security risk.</p>
-        <p class="line"><span class="prompt">$</span> status</p>
-        <p class="line ok">AVAILABLE FOR OPPORTUNITIES</p>
-        <p class="line"><span class="prompt">&gt;_</span><span class="cursor" aria-hidden="true"></span></p>
+    <!-- Case Study 1: Silent Scraper Academy -->
+    <article class="project-detail" id="detail-scraper">
+      <header class="case-hero">
+        <div class="container">
+          <button class="btn btn-outline btn-sm case-back-btn" onclick="goHome('projects')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Case Studies
+          </button>
+          <span class="project-badge">VULNERABLE WEB LAB</span>
+          <h1>Silent Scraper Academy</h1>
+          <p class="subtitle">Vulnerable Web Application &amp; Security Learning Platform</p>
+          <div class="case-meta">
+            <div><h5>Category</h5><p>Web Application Security Lab</p></div>
+            <div><h5>Stack</h5><p>PHP, Node.js, Python FastAPI, JS</p></div>
+            <div><h5>Tools</h5><p>Burp Suite, Nmap, Gobuster, FFUF</p></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="case-body">
+        <div class="container">
+          <div class="case-block">
+            <h2>Overview</h2>
+            <p>Silent Scraper Academy is a full-stack cybersecurity training platform designed around an intentional vulnerable web application lab. It gives users a safe, realistic environment to practice discovering, exploiting, and remediating genuine web application flaws.</p>
+          </div>
+          <div class="case-block">
+            <h2>Objective</h2>
+            <p>Design and implement controlled vulnerabilities reflecting the OWASP Top 10, then perform exhaustive black-box and white-box penetration testing to document attack paths and write comprehensive remediation reports.</p>
+          </div>
+          <div class="case-block">
+            <h2>Attack Surface &amp; Technical Implementation</h2>
+            <ul>
+              <li><strong>SQL Injection (SQLi):</strong> Unsanitized input parameters in authentication and product queries.</li>
+              <li><strong>Cross-Site Scripting (Stored &amp; Reflected XSS):</strong> Improperly escaped user comments and URL parameters.</li>
+              <li><strong>Broken Access Control (IDOR):</strong> Predictable object references exposing user profiles and administrative endpoints.</li>
+              <li><strong>Session Handling:</strong> Flawed token invalidation and cookie security flags.</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <h2>Tools &amp; Findings</h2>
+            <p>Burp Suite was leveraged for manual request tampering and payload crafting. FFUF was used for directory and parameter discovery. All vulnerabilities were cataloged with CVSS scores, proof-of-concept exploits, and code-level remediation snippets.</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Mohamed Hesham. All rights reserved.</span>
-      <div class="footer-links">
-        <a href="https://github.com/456mohamed456" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/mohamed-heshame-093232300/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:mohamedhesham1033@gmail.com">Email</a>
+    </article>
+
+    <!-- Case Study 2: CTF Competitions -->
+    <article class="project-detail" id="detail-ctf">
+      <header class="case-hero">
+        <div class="container">
+          <button class="btn btn-outline btn-sm case-back-btn" onclick="goHome('projects')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Case Studies
+          </button>
+          <span class="project-badge">OFFENSIVE EXPLOITATION</span>
+          <h1>CTF Competitions &amp; Security Challenges</h1>
+          <p class="subtitle">Hands-On Offensive Security &amp; Problem Solving</p>
+          <div class="case-meta">
+            <div><h5>Category</h5><p>Network &amp; Web Exploitation</p></div>
+            <div><h5>Status</h5><p>HackX CTF Verified &bull; Ongoing Practice</p></div>
+            <div><h5>Arsenal</h5><p>Nmap, Burp Suite, Metasploit, Wireshark, Linux</p></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="case-body">
+        <div class="container">
+          <div class="case-block">
+            <h2>Overview</h2>
+            <p>Capture The Flag (CTF) competitions provide rigorous, time-pressured environments for developing practical penetration testing intuition and dissecting unfamiliar attack surfaces.</p>
+          </div>
+          <div class="case-block">
+            <h2>Methodology</h2>
+            <p>A systematic, repeatable methodology is followed: thorough port and service discovery, version fingerprinting, vulnerability mapping, initial exploitation, post-exploitation enumeration, and privilege escalation to root/SYSTEM.</p>
+          </div>
+          <div class="case-block">
+            <h2>Verified Result &mdash; HackX CTF</h2>
+            <p>Competed in HackX CTF, solving real-world challenge machines involving web exploitation, binary analysis, and cryptographic decoding under competitive rules.</p>
+          </div>
+        </div>
       </div>
-    </div>
+    </article>
+
   </div>
-</footer>
-</div>
-<!-- ============ END HOME VIEW ============ -->
 
-<!-- ================================================================
-     PROJECT DETAIL VIEW (in-page routing)
-     ================================================================ -->
-<div id="view-project">
-
-  <div class="case-nav">
+  <!-- =========================================================
+       Footer
+       ========================================================= -->
+  <footer class="footer">
     <div class="container">
-      <button class="back-link" onclick="goHome('projects')">← Back to Projects</button>
-      <button class="brand" onclick="goHome()"><span class="dot" aria-hidden="true"></span>HAXMED</button>
-    </div>
-  </div>
-
-  <!-- Project: Silent Scraper Academy -->
-  <article class="project-detail" id="detail-scraper">
-    <header class="case-hero">
-      <div class="container">
-        <img class="case-hero-logo" src="assets/images/silentscrapers-logo.jpg" alt="Silent Scrapers logo">
-        <span class="case-badge mono">SECOND-YEAR PROJECT</span>
-        <h1>Silent Scraper Academy</h1>
-        <p class="subtitle">Vulnerable Web Application &amp; Security Learning Platform</p>
-        <div class="case-meta">
-          <div><h5>Category</h5><p>Web Application Security</p></div>
-          <div><h5>Platform Stack</h5><p>PHP (XAMPP), Node.js, Python (FastAPI), HTML/CSS/JavaScript</p></div>
-          <div><h5>Testing Tools</h5><p>Burp Suite, Nmap, Gobuster, FFUF</p></div>
+      <div class="footer-top">
+        <button class="brand" onclick="goHome('home')">
+          <img src="assets/images/haxmed-emblem.svg" alt="HAXMED Emblem" class="brand-emblem">
+          <span>HA<span class="brand-x">X</span>MED</span>
+        </button>
+        <span class="footer-motto">DREAM &bull; STUDY &bull; HACK &bull; ACHIEVE</span>
+        <div style="display:flex; gap:16px;">
+          <a href="#about" class="mono" style="font-size:13px; color:var(--text-muted);">About</a>
+          <a href="#projects" class="mono" style="font-size:13px; color:var(--text-muted);">Projects</a>
+          <a href="#contact" class="mono" style="font-size:13px; color:var(--text-muted);">Contact</a>
         </div>
       </div>
-    </header>
-    <div class="case-body">
-      <div class="container">
-        <div class="case-block"><h2>Overview</h2><p>Silent Scraper Academy is a full-stack cybersecurity training platform built around a vulnerable web application lab, giving users a safe, isolated environment to practice exploiting real-world web vulnerabilities.</p></div>
-        <div class="case-block"><h2>Objective</h2><p>Design and implement a controlled vulnerable web application (PHP apps hosted via XAMPP) inside a larger training platform, connecting offensive-security methodology with practical, hands-on application security testing.</p></div>
-        <div class="case-block">
-          <h2>Attack Surface</h2>
-          <p>Testing was scoped to the vulnerable application's exposed endpoints, authentication and authorization flows, file handling features, and general HTTP behavior — all within the controlled lab environment.</p>
-          <ul><li>Web Reconnaissance &amp; Subdomain Enumeration</li><li>Authentication Testing</li><li>Authorization Testing</li><li>IDOR &amp; Broken Access Control</li><li>File Upload Vulnerabilities</li><li>Path Traversal</li><li>Input Validation</li><li>HTTP Security Analysis</li></ul>
-        </div>
-        <div class="case-block">
-          <h2>Methodology</h2>
-          <div class="case-flow" role="list"><span class="step">Reconnaissance</span>&nbsp;→&nbsp;<span class="step">Enumeration</span>&nbsp;→&nbsp;<span class="step">Vulnerability Discovery</span>&nbsp;→&nbsp;<span class="step">Validation</span>&nbsp;→&nbsp;<span class="step">Exploitation</span>&nbsp;→&nbsp;<span class="step">Documentation</span></div>
-        </div>
-        <div class="case-block">
-          <h2>Technical Implementation</h2>
-          <p>The vulnerable lab environment runs on PHP served via XAMPP. The wider training platform is built with Node.js and Python (FastAPI) for the backend, and HTML/CSS/JavaScript on the frontend, and includes custom subdomain enumeration and reconnaissance tooling built to support the training exercises.</p>
-        </div>
-        <div class="case-block"><h2>Tools</h2><ul><li>Burp Suite — manual request analysis and testing</li><li>Nmap — service and attack-surface discovery</li><li>Gobuster &amp; FFUF — endpoint and content discovery</li><li>Node.js &amp; Python (FastAPI) — platform backend</li></ul></div>
-        <div class="case-block"><h2>Security Findings</h2><p class="coming-soon">Detailed findings write-up is being prepared and will be published here once finalized.</p></div>
-        <div class="case-block"><h2>Challenges</h2><p class="coming-soon">Challenges encountered during the build and assessment will be documented here.</p></div>
-        <div class="case-block"><h2>Outcome</h2><p>The project demonstrates the ability to build and assess a controlled vulnerable environment while connecting offensive-security methodology with practical application security.</p></div>
-        <div class="case-block"><h2>Lessons Learned</h2><p class="coming-soon">Key takeaways will be added here.</p></div>
-        <div class="case-block">
-          <h2>GitHub / Demo</h2>
-          <div class="case-cta-row">
-            <a href="https://github.com/456mohamed456" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub</a>
-            <a href="https://www.linkedin.com/posts/mohamed-heshame-093232300_cybersecurityjourney-webapplicationsecurity-ugcPost-7434686620873818114-3VmV/" target="_blank" rel="noopener" class="btn btn-outline">View Project Post on LinkedIn</a>
-          </div>
-        </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Mohamed Hesham (HAXMED). All rights reserved.</div>
+        <div>Offensive Security &bull; Web Pentesting &bull; Vulnerability Research</div>
       </div>
     </div>
-  </article>
+  </footer>
 
-  <!-- Project: CTF Challenges -->
-  <article class="project-detail" id="detail-ctf">
-    <header class="case-hero">
-      <div class="container">
-        <span class="case-badge mono">OFFENSIVE SECURITY</span>
-        <h1>CTF Competitions &amp; Security Challenges</h1>
-        <p class="subtitle">Hands-On Offensive Security &amp; Problem Solving</p>
-        <div class="case-meta">
-          <div><h5>Category</h5><p>Network &amp; Web Exploitation</p></div>
-          <div><h5>Tools</h5><p>Nmap, Burp Suite, Gobuster, FFUF, SMBClient, Metasploit, Netcat, Wireshark, Linux</p></div>
-          <div><h5>Status</h5><p>Ongoing practice</p></div>
-        </div>
-      </div>
-    </header>
-    <div class="case-body">
-      <div class="container">
-        <div class="case-block"><h2>Overview</h2><p>Capture The Flag challenges provide a controlled environment for developing practical penetration-testing skills and learning how to investigate unfamiliar attack surfaces.</p></div>
-        <div class="case-block"><h2>Objective</h2><p>Build applied, repeatable methodology for approaching unfamiliar targets — from initial reconnaissance through to privilege escalation — in a legal, structured setting.</p></div>
-        <div class="case-block">
-          <h2>Attack Surface</h2>
-          <ul><li>Reconnaissance &amp; Enumeration</li><li>Web Exploitation</li><li>Authentication</li><li>Service Enumeration</li><li>Privilege Escalation</li><li>Linux Internals</li><li>Network Security</li><li>Vulnerability Analysis</li></ul>
-        </div>
-        <div class="case-block">
-          <h2>Methodology</h2>
-          <div class="case-flow" role="list"><span class="step">Recon</span>&nbsp;→&nbsp;<span class="step">Enumeration</span>&nbsp;→&nbsp;<span class="step">Analysis</span>&nbsp;→&nbsp;<span class="step">Exploitation</span>&nbsp;→&nbsp;<span class="step">Privilege Escalation</span>&nbsp;→&nbsp;<span class="step">Documentation</span></div>
-        </div>
-        <div class="case-block"><h2>Tools</h2><ul><li>Nmap — service discovery and enumeration</li><li>Burp Suite, Gobuster, FFUF — web-focused challenges</li><li>SMBClient — SMB share enumeration</li><li>Metasploit &amp; Netcat — exploitation and shell handling</li><li>Wireshark — traffic analysis</li></ul></div>
-
-        <div class="case-block">
-          <h2>Verified Result — HackX CTF</h2>
-          <p>Competed in HackX CTF against 280 participants, placing rank #40 with 93 challenges solved and 17,010 points scored. Certificate issued March 30, 2026 by the HackX CTF Team.</p>
-        </div>
-
-        <div class="case-block"><h2>Security Findings</h2><p class="coming-soon">Write-ups for individual challenges will be published here once verified for public release.</p></div>
-        <div class="case-block"><h2>Technical Implementation</h2><p class="coming-soon">Detailed walkthroughs of specific solves are in progress.</p></div>
-        <div class="case-block"><h2>Challenges</h2><p class="coming-soon">Notable obstacles and how they were approached will be added here.</p></div>
-        <div class="case-block"><h2>Outcome</h2><p>Consistent, hands-on practice with recon, enumeration, exploitation, and privilege escalation across varied lab and CTF environments — reinforcing the same methodology used in real assessments.</p></div>
-        <div class="case-block"><h2>Lessons Learned</h2><p class="coming-soon">Key takeaways will be added here.</p></div>
-        <div class="case-block">
-          <h2>GitHub / Demo</h2>
-          <div class="case-cta-row"><a href="https://github.com/456mohamed456" target="_blank" rel="noopener" class="btn btn-primary">View Write-ups on GitHub</a></div>
-        </div>
-      </div>
-    </div>
-  </article>
-
-
-</div>
-<!-- ============ END PROJECT DETAIL VIEW ============ -->
-
-<script>
-(function(){
-  "use strict";
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  /* Sticky nav */
-  var nav = document.getElementById("nav");
-  function onScroll(){ if (window.scrollY > 12) nav.classList.add("is-scrolled"); else nav.classList.remove("is-scrolled"); }
-  document.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  /* Mobile menu */
-  var toggle = document.getElementById("navToggle");
-  var menu = document.getElementById("mobileMenu");
-  function closeMenu(){ menu.classList.remove("is-open"); menu.setAttribute("aria-hidden","true"); toggle.setAttribute("aria-expanded","false"); }
-  function openMenu(){ menu.classList.add("is-open"); menu.setAttribute("aria-hidden","false"); toggle.setAttribute("aria-expanded","true"); }
-  if (toggle){
-    toggle.addEventListener("click", function(){ menu.classList.contains("is-open") ? closeMenu() : openMenu(); });
-    menu.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", closeMenu); });
-  }
-
-  /* Simple in-page router: home sections <-> project detail panels */
-  window.goHome = function(sectionId){
-    document.getElementById("view-project").style.display = "none";
-    document.getElementById("view-home").style.display = "";
-    document.querySelectorAll(".project-detail").forEach(function(p){ p.classList.remove("is-active"); });
-    if (sectionId){
-      var el = document.getElementById(sectionId);
-      if (el) setTimeout(function(){ el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); }, 10);
-    } else {
-      window.scrollTo(0,0);
-    }
-    closeMenu();
-  };
-
-  window.openProject = function(slug){
-    document.querySelectorAll(".project-detail").forEach(function(p){ p.classList.remove("is-active"); });
-    var el = document.getElementById("detail-" + slug);
-    if (!el) return;
-    el.classList.add("is-active");
-    document.getElementById("view-home").style.display = "none";
-    document.getElementById("view-project").style.display = "block";
-    window.scrollTo(0,0);
-  };
-
-  /* Active nav highlight */
-  var sectionIds = ["home","about","skills","projects","services","contact"];
-  var sections = sectionIds.map(function(id){ return document.getElementById(id); }).filter(Boolean);
-  var navLinks = document.querySelectorAll(".nav-links a");
-  if ("IntersectionObserver" in window && sections.length){
-    var navObserver = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting){
-          var id = entry.target.id;
-          navLinks.forEach(function(link){ link.classList.toggle("active", link.textContent.trim().toLowerCase() === (id === "home" ? "home" : id)); });
-        }
-      });
-    }, { rootMargin: "-45% 0px -50% 0px" });
-    sections.forEach(function(s){ navObserver.observe(s); });
-  }
-
-  /* Scroll reveal */
-  if ("IntersectionObserver" in window && !reduceMotion){
-    var revealObserver = new IntersectionObserver(function(entries, obs){
-      entries.forEach(function(entry){ if (entry.isIntersecting){ entry.target.classList.add("is-visible"); obs.unobserve(entry.target); } });
-    }, { threshold: 0.15 });
-    document.querySelectorAll(".reveal").forEach(function(el){ revealObserver.observe(el); });
-  } else {
-    document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("is-visible"); });
-  }
-
-  /* Hero terminal typing */
-  var terminalBody = document.getElementById("terminalBody");
-  var script = [
-    { type:"cmd", text:"whoami" },
-    { type:"out", text:"HAXMED\nJunior Penetration Tester" },
-    { type:"cmd", text:"objective" },
-    { type:"out", text:"Identify vulnerabilities.\nValidate attack paths.\nReduce security risk." },
-    { type:"cmd", text:"current_focus" },
-    { type:"out", text:"[✓] Web Application Security\n[✓] Network Penetration Testing\n[✓] Vulnerability Assessment\n[✓] Security Automation" },
-    { type:"cmd", text:"status" },
-    { type:"ok", text:"SYSTEM READY" }
-  ];
-
-  function renderStatic(){
-    var html = "";
-    script.forEach(function(line){
-      if (line.type === "cmd") html += '<p class="line"><span class="prompt">$</span> ' + line.text + '</p>';
-      else if (line.type === "ok") html += '<p class="line ok">' + line.text.replace(/\n/g,"<br>") + '</p>';
-      else html += '<p class="line strong">' + line.text.replace(/\n/g,"<br>") + '</p>';
-    });
-    html += '<p class="line"><span class="prompt">&gt;_</span><span class="cursor"></span></p>';
-    terminalBody.innerHTML = html;
-  }
-
-  function typeText(text, el, done){
-    var idx = 0;
-    (function step(){
-      if (idx <= text.length){ el.textContent = text.slice(0, idx); idx++; setTimeout(step, 22); }
-      else done();
-    })();
-  }
-
-  function typeTerminal(){
-    var i = 0;
-    function next(){
-      if (i >= script.length){
-        var cursorLine = document.createElement("p");
-        cursorLine.className = "line";
-        cursorLine.innerHTML = '<span class="prompt">&gt;_</span><span class="cursor"></span>';
-        terminalBody.appendChild(cursorLine);
-        return;
-      }
-      var line = script[i];
-      var p = document.createElement("p");
-      p.className = line.type === "ok" ? "line ok" : (line.type === "cmd" ? "line" : "line strong");
-      terminalBody.appendChild(p);
-      if (line.type === "cmd"){
-        var prompt = document.createElement("span");
-        prompt.className = "prompt"; prompt.textContent = "$ ";
-        p.appendChild(prompt);
-        var textSpan = document.createElement("span");
-        p.appendChild(textSpan);
-        typeText(line.text, textSpan, function(){ i++; setTimeout(next, 220); });
-      } else {
-        p.innerHTML = line.text.replace(/\n/g, "<br>");
-        i++; setTimeout(next, 260);
-      }
-    }
-    next();
-  }
-
-  if (terminalBody){ reduceMotion ? renderStatic() : typeTerminal(); }
-
-  /* Contact form */
-  var form = document.getElementById("contactForm");
-  var statusBox = document.getElementById("formStatus");
-  function setError(fieldId, hasError){ var field = document.getElementById(fieldId); if (field) field.classList.toggle("error", hasError); }
-  function isValidEmail(value){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); }
-
-  if (form){
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-      var name = document.getElementById("name").value.trim();
-      var email = document.getElementById("email").value.trim();
-      var projectType = document.getElementById("projectType").value;
-      var message = document.getElementById("message").value.trim();
-      var honeypot = document.getElementById("website").value;
-      var valid = true;
-
-      setError("field-name", !name); if (!name) valid = false;
-      var emailOk = isValidEmail(email); setError("field-email", !emailOk); if (!emailOk) valid = false;
-      setError("field-type", !projectType); if (!projectType) valid = false;
-      setError("field-message", message.length < 5); if (message.length < 5) valid = false;
-
-      if (honeypot){ form.reset(); return; }
-
-      statusBox.classList.remove("show","success","fail");
-      if (!valid){ statusBox.textContent = "Please fix the highlighted fields and try again."; statusBox.classList.add("show","fail"); return; }
-
-      statusBox.textContent = "Thanks — your message has been sent. I'll get back to you soon.";
-      statusBox.classList.add("show","success");
-      form.reset();
-    });
-  }
-
-  /* ---------- Copy email button ---------- */
-  var copyBtn = document.querySelector(".copy-btn");
-  if (copyBtn){
-    copyBtn.addEventListener("click", function(){
-      var text = copyBtn.getAttribute("data-copy-text");
-      var iconCopy = copyBtn.querySelector(".icon-copy");
-      var iconCheck = copyBtn.querySelector(".icon-check");
-
-      function showCopied(){
-        copyBtn.classList.add("copied");
-        copyBtn.setAttribute("aria-label", "Email copied");
-        if (iconCopy) iconCopy.style.display = "none";
-        if (iconCheck) iconCheck.style.display = "block";
-        setTimeout(function(){
-          copyBtn.classList.remove("copied");
-          copyBtn.setAttribute("aria-label", "Copy email address");
-          if (iconCopy) iconCopy.style.display = "block";
-          if (iconCheck) iconCheck.style.display = "none";
-        }, 1800);
-      }
-
-      if (navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(text).then(showCopied).catch(function(){
-          fallbackCopy(text, showCopied);
-        });
-      } else {
-        fallbackCopy(text, showCopied);
-      }
-    });
-  }
-
-  function fallbackCopy(text, done){
-    var ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.left = "-9999px";
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand("copy"); } catch (e) { /* no-op */ }
-    document.body.removeChild(ta);
-    done();
-  }
-
-  /* ---------- Count-up stats ---------- */
-  var statNumbers = document.querySelectorAll(".stat-number");
-  function animateCount(el){
-    var target = parseInt(el.getAttribute("data-target"), 10) || 0;
-    if (reduceMotion){
-      el.textContent = target.toLocaleString();
-      return;
-    }
-    var duration = 1400;
-    var startTime = null;
-    function step(ts){
-      if (startTime === null) startTime = ts;
-      var progress = Math.min((ts - startTime) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
-      var value = Math.floor(eased * target);
-      el.textContent = value.toLocaleString();
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target.toLocaleString();
-    }
-    requestAnimationFrame(step);
-  }
-
-  if (statNumbers.length){
-    if ("IntersectionObserver" in window){
-      var statsObserver = new IntersectionObserver(function(entries, obs){
-        entries.forEach(function(entry){
-          if (entry.isIntersecting){
-            animateCount(entry.target);
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.4 });
-      statNumbers.forEach(function(el){ statsObserver.observe(el); });
-    } else {
-      statNumbers.forEach(animateCount);
-    }
-  }
-})();
-</script>
-
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
