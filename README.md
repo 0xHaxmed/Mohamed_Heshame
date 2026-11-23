@@ -58,6 +58,8 @@ Hosted live on GitHub Pages:
 
 ### **Education & Training**
 - **B.Sc. in Cybersecurity** &bull; Helwan International Technological University (HITU) *(2023 &mdash; 2027)*
+- **ITI Universities Bootcamp 2026** &bull; Cyber Talents &amp; ITI *(10/2026 &mdash; 11/2026)*
+- **Jr Penetration Tester** &bull; TryHackMe *(11/2026 &bull; 95 hrs)*
 - **Cybersecurity Summer Camp (120 hrs)** &bull; Information Technology Institute (ITI) *(07/2026 &mdash; 08/2026)*
 
 <hr>

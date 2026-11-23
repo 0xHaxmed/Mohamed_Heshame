@@ -120,7 +120,7 @@
               <div class="stat-label">Specialized ITI Hours</div>
             </div>
             <div class="hero-stat-item">
-              <div class="stat-number" data-target="10">0</div>
+              <div class="stat-number" data-target="14">0</div>
               <div class="stat-label">Verified Certifications</div>
             </div>
             <div class="hero-stat-item">
@@ -280,7 +280,25 @@
             </div>
           </div>
 
-          <!-- 3. ITI -->
+          <!-- 3. ITI Universities Bootcamp 2026 -->
+          <div class="timeline-item">
+            <div class="timeline-date">10/2026 &mdash; 11/2026<br><span style="font-size:11px;color:var(--text-muted);">BOOTCAMP</span></div>
+            <div class="timeline-content">
+              <h4>ITI Universities Bootcamp 2026 &bull; Cyber Talents &amp; ITI</h4>
+              <span class="timeline-role">Competitive Cybersecurity Bootcamp &bull; Group B (Cert #00000003118)</span>
+              <p>
+                Intensive offensive security and competitive challenge track completed from 2nd October to 22nd November 2026, organized by Cyber Talents in collaboration with the Information Technology Institute (ITI).
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Cyber Talents</span>
+                <span class="timeline-tag">ITI Bootcamp</span>
+                <span class="timeline-tag">Offensive Security</span>
+                <span class="timeline-tag">CTF Competitions</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. ITI Summer Camp -->
           <div class="timeline-item">
             <div class="timeline-date">07/2026 &mdash; 08/2026<br><span style="font-size:11px;color:var(--text-muted);">SUMMER CAMP</span></div>
             <div class="timeline-content">
@@ -624,7 +642,7 @@
         <!-- Controls Bar: Category Filters & Nav Arrows -->
         <div class="cert-controls-bar reveal">
           <div class="cert-filter-group" role="tablist" aria-label="Certificate Categories">
-            <button class="cert-filter-btn active" data-category="all">All (12)</button>
+            <button class="cert-filter-btn active" data-category="all">All (14)</button>
             <button class="cert-filter-btn" data-category="security">Security &amp; CTF</button>
             <button class="cert-filter-btn" data-category="cloud">Cloud &amp; Infra</button>
             <button class="cert-filter-btn" data-category="dev">Programming</button>
@@ -641,11 +659,51 @@
           </div>
         </div>
 
-        <!-- Slider Track with All 12 Verified Credentials -->
+        <!-- Slider Track with All 14 Verified Credentials -->
         <div class="cert-slider-wrapper reveal">
           <div class="cert-slider-track" id="certTrack">
 
-            <!-- 1. ITI Cyber Security 120hrs -->
+            <!-- 1. TryHackMe Jr Penetration Tester -->
+            <div class="cert-slide-card" data-category="security" 
+                 data-title="Jr Penetration Tester &mdash; Learning Path" 
+                 data-issuer="TryHackMe" 
+                 data-img="assets/certificates/tryhackme-jr-penetration-tester.jpg" 
+                 data-pdf="assets/certificates/pdf/tryhackme-jr-penetration-tester.pdf" 
+                 data-stat="95 Hours 25 Mins &bull; Web Exploitation, Network Security &amp; Privilege Escalation" 
+                 onclick="openCertModal(this)">
+              <div class="cert-slide-img-wrap">
+                <span class="cert-slide-badge">THM JR PENTESTER</span>
+                <img src="assets/certificates/tryhackme-jr-penetration-tester.jpg" alt="TryHackMe Jr Penetration Tester Certificate" loading="lazy">
+              </div>
+              <div class="cert-slide-body">
+                <h4>Jr Penetration Tester</h4>
+                <span class="cert-slide-issuer">TryHackMe</span>
+                <p class="cert-slide-stat">Offensive Security &amp; Exploitation (95h 25m)</p>
+                <span class="cert-slide-action">Inspect Document &rarr;</span>
+              </div>
+            </div>
+
+            <!-- 2. ITI Universities Bootcamp 2026 -->
+            <div class="cert-slide-card" data-category="security" 
+                 data-title="ITI Universities Bootcamp 2026 &mdash; Group B" 
+                 data-issuer="Cyber Talents &bull; Information Technology Institute (ITI)" 
+                 data-img="assets/certificates/iti-universities-bootcamp.jpg" 
+                 data-pdf="assets/certificates/pdf/iti-universities-bootcamp.pdf" 
+                 data-stat="Universities Bootcamp 2026 &bull; Cyber Talents &amp; ITI &bull; Cert #00000003118" 
+                 onclick="openCertModal(this)">
+              <div class="cert-slide-img-wrap">
+                <span class="cert-slide-badge">ITI &bull; CYBER TALENTS</span>
+                <img src="assets/certificates/iti-universities-bootcamp.jpg" alt="ITI Universities Bootcamp 2026 Certificate" loading="lazy">
+              </div>
+              <div class="cert-slide-body">
+                <h4>ITI Universities Bootcamp 2026</h4>
+                <span class="cert-slide-issuer">Cyber Talents &bull; ITI</span>
+                <p class="cert-slide-stat">Offensive Security &amp; CTF Competition</p>
+                <span class="cert-slide-action">Inspect Document &rarr;</span>
+              </div>
+            </div>
+
+            <!-- 3. ITI Cyber Security 120hrs -->
             <div class="cert-slide-card" data-category="security" 
                  data-title="Cyber Security Intensive Track (120 hrs)" 
                  data-issuer="Information Technology Institute (ITI)" 
